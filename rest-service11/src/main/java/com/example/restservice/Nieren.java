@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Nieren implements Serializable{
     
     private int menge;
+    private int preis;
     
     
     public Nieren(){}
@@ -16,5 +17,14 @@ public class Nieren implements Serializable{
     public int getMenge(){
         return menge;
     }
-    
+
+
+    public void setPreis(int preis){
+        this.preis = preis;
+    }
+
+    public int getPreis(){
+        return preis;
+    }
+
 }

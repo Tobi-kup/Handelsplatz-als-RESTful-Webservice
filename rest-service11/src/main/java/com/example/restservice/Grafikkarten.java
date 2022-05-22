@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Grafikkarten implements Serializable{
 
     private int menge;
-
+    private int preis;
 
     public Grafikkarten(){}
 
@@ -15,6 +15,15 @@ public class Grafikkarten implements Serializable{
 
     public int getMenge(){
         return menge;
+    }
+
+
+    public void setPreis(int preis){
+        this.preis = preis;
+    }
+
+    public int getPreis(){
+        return preis;
     }
 
 }
