@@ -1,9 +1,30 @@
-    package com.example.restservice;
+package com.example.restservice;
+import javax.print.DocFlavor;
 import java.util.*;
 /*
     Command-Line Login mit festgelegten Nutzernamen und Passwörtern.
  */
 public class UserLogin {
+
+    public UserLogin(){}
+
+    public String check(String name, String password){
+        String ausgabe = "";
+
+        if(name.equals("Max") && password.equals("MPasswort") ||
+           name.equals("Fengyi") && password.equals("FPasswort") ||
+           name.equals("Tobi") && password.equals("TPasswort")) {
+            ausgabe = "Willkomen " + name + ".";
+
+        } else if(name.equals("Max") || name.equals("Fengyi") ||  name.equals("Tobi")){
+            ausgabe = "Das Passwort ist falsch!";
+
+        }else{
+            ausgabe = "Dieser Nutzer existiert nicht.";
+        }
+        return ausgabe;
+    }
+
 
     public static void main(String[] args) {
         Scanner UserName = new Scanner(System.in);

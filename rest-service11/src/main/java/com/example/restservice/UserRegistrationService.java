@@ -1,31 +1,19 @@
 package com.example.restservice;
 
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
-
-@Path("verwaltung")
+@RestController
 public class UserRegistrationService {
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("/start")
-    public String bereit(){
-    return "Alles bereit";
+    //http://localhost:8080/login?name=Max&password=MPasswort
+    @GetMapping("/login")
+    public String bereit(@RequestParam(value = "name") String name, @RequestParam(value = "password") String password){
+    UserLogin neu = new UserLogin();
+    return neu.check(name, password);
 }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/registrierterKunde")
-    public UserRegistration registrierterKunde(){
-        UserRegistration userDaten = new UserRegistration();
-        userDaten.setNachname("Fengyi");
-        userDaten.setVorname("Goertz");
-        userDaten.setEmail("max.zhao@oose.de");
-        userDaten.setPasswort("qwertz");
-
-        return userDaten;
-    }
-
 }
+
