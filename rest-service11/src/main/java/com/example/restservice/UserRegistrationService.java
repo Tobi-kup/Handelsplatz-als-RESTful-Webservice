@@ -43,5 +43,40 @@ public class UserRegistrationService {
         return "Ich würde dir keine Erlaubnis dafür geben, wenn es implementiert wäre";
     }
 
+
+    /**
+     * Kauft angegebenes Gut für den aktuellen Preis auf Nutzeranfrage, nach dessen Anmeldung
+     * @param name - Name des Nutzerprofils vom Typ String
+     * @param password - Passwort des Nutzerprofils vom Typ String
+     * @param item- Gut, das gekauft werden soll
+     * @return erstmal nur einen String, der sagt, was getan werden sollte
+     */
+    @GetMapping("/buy")
+    public String buy(@RequestParam(value = "name") String name, @RequestParam(value = "password") String password, @RequestParam(value = "item") String item){
+        UserLogin neu = new UserLogin();
+        //UserInteraction ui = new UserInteraction();
+        if(neu.check(name, password) == "Willkommen."){
+            return "Ich würde die benötige Methode aus UserInteraction aufrufen, wenn es implementiert wäre.";
+        }
+        return "Ich würde dir keine Erlaubnis dafür geben, wenn es implementiert wäre";
+    }
+
+
+    /**
+     * Verkauft angegebenes Gut für den aktuellen Preis auf Nutzeranfrage, nach dessen Anmeldung
+     * @param name - Name des Nutzerprofils vom Typ String
+     * @param password - Passwort des Nutzerprofils vom Typ String
+     * @param item- Gut, das verkauft werden soll
+     * @return erstmal nur einen String, der sagt, was getan werden sollte
+     */
+    @GetMapping("/sell")
+    public String sell(@RequestParam(value = "name") String name, @RequestParam(value = "password") String password, @RequestParam(value = "item") String item){
+        UserLogin neu = new UserLogin();
+        //UserInteraction ui = new UserInteraction();
+        if(neu.check(name, password) == "Willkommen."){
+            return "Ich würde die benötige Methode aus UserInteraction aufrufen, wenn es implementiert wäre.";
+        }
+        return "Ich würde dir keine Erlaubnis dafür geben, wenn es implementiert wäre";
+    }
 }
 
