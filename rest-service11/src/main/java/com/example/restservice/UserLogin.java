@@ -1,13 +1,29 @@
 package com.example.restservice;
 import javax.print.DocFlavor;
 import java.util.*;
+
 /*
     Command-Line Login mit festgelegten Nutzernamen und Passwörtern.
  */
+/**
+ * UserLogin ist die Klasse zur Abfrage der Nutzerdaten.
+ * Sie prüft, ob die eigegeben Daten einem Profil zugeorndet werden können, und bestimmmt, ob Zugang zum Server gewährt wird.
+ */
 public class UserLogin {
+
+    /**
+     * Konstruktor, um eine Instanz von UserLogin zu erzeuge.
+     */
 
     public UserLogin(){}
 
+    /**
+     * Erhält Namen und Passwort eines Anmeldeversuchs und prüft, ob diese einem Profil zugeschrieben werden können.
+     * Die Methode gibt einen angepassten String aus.
+     * @param name - Name des Nutzerprofils eines Anmeldeversuchs vom Typ String
+     * @param password - Passwort des Nutzerprofils eines Anmeldeversuchs vom Typ String
+     * @return einen angepassten String, je nachdem ob die Anmeldung geglückt oder welcher Fehler aufgetreten ist
+     */
     public String check(String name, String password){
         String ausgabe = "";
 
