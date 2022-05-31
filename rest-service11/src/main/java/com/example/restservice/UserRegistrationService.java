@@ -13,7 +13,24 @@ import org.springframework.web.bind.annotation.*;
 public class UserRegistrationService {
 
 
+    //bsp: http://localhost:8080/signup?name=Max&password=MPasswort
+
+    /**
+     * Fordert den Nutzer auf seine gewünschten Zugangsdaten zu wählen und somit einen Account zu erstellen
+     * @param name - Name des Nutzerprofils vom Typ String
+     * @param password - Passwort des Nutzerprofils vom Typ String
+     * @return erstmal nur einen String, der ausgibt, was geschehen sollte
+     */
+    @GetMapping("/signup")
+    public String signup(@RequestParam(value = "name") String name, @RequestParam(value = "password") String password){
+        //UserInteraction ui = new UserInteraction();
+        //ui.signup(name, password) beispielsweise
+        return "Hier würde eine entsprechende Methode aus UserInteraction aufgerufen worden die alles weitere in die Wege setzt.";
+    }
+
+
     //http://localhost:8080/login?name=<Name>&password=<Passwort>
+    //bsp: http://localhost:8080/login?name=Max&password=MPasswort
 
     /**
      * Fragt den Nutzer nach seinen Nutzerdaten, um ihm Daten den Zugang zu gewähren
@@ -24,26 +41,28 @@ public class UserRegistrationService {
     @GetMapping("/login")
     public String login(@RequestParam(value = "name") String name, @RequestParam(value = "password") String password){
     UserLogin neu = new UserLogin();
-    return neu.check(name, password);
+    return neu.check(name, password) + " " + name + ".";
     }
 
 
+    //bsp: http://localhost:8080/refresh?name=Max&password=MPasswort
     /**
      * Aktualisiert die Preise der angebotenen Güter auf Nutzeranfrage, nach dessen Anmeldung
      * @param name - Name des Nutzerprofils vom Typ String
      * @param password - Passwort des Nutzerprofils vom Typ String
-     * @return erstmal nur einen angepassten, der ausgibt, ob der Nutzer die nötigen Rechte besitz
+     * @return erstmal nur einen angepassten String, der ausgibt, ob der Nutzer die nötigen Rechte besitz
      */
     @GetMapping("/refresh")
     public String refresh(@RequestParam(value = "name") String name, @RequestParam(value = "password") String password){
         UserLogin neu = new UserLogin();
-        if(neu.check(name, password) == "Willkommen."){
+        if(neu.check(name, password) == "Willkommen"){
             return "Ich würde refreshen, wenn es implementiert wäre.";
         }
         return "Ich würde dir keine Erlaubnis dafür geben, wenn es implementiert wäre";
     }
 
 
+    //bsp: http://localhost:8080/buy?name=Max&password=MPasswort&item=Discord_Nitro
     /**
      * Kauft angegebenes Gut für den aktuellen Preis auf Nutzeranfrage, nach dessen Anmeldung
      * @param name - Name des Nutzerprofils vom Typ String
@@ -55,13 +74,14 @@ public class UserRegistrationService {
     public String buy(@RequestParam(value = "name") String name, @RequestParam(value = "password") String password, @RequestParam(value = "item") String item){
         UserLogin neu = new UserLogin();
         //UserInteraction ui = new UserInteraction();
-        if(neu.check(name, password) == "Willkommen."){
+        if(neu.check(name, password) == "Willkommen"){
             return "Ich würde die benötige Methode aus UserInteraction aufrufen, wenn es implementiert wäre.";
         }
         return "Ich würde dir keine Erlaubnis dafür geben, wenn es implementiert wäre";
     }
 
 
+    //bsp: http://localhost:8080/sell?name=Max&password=MPasswort&item=NFT
     /**
      * Verkauft angegebenes Gut für den aktuellen Preis auf Nutzeranfrage, nach dessen Anmeldung
      * @param name - Name des Nutzerprofils vom Typ String
@@ -73,7 +93,7 @@ public class UserRegistrationService {
     public String sell(@RequestParam(value = "name") String name, @RequestParam(value = "password") String password, @RequestParam(value = "item") String item){
         UserLogin neu = new UserLogin();
         //UserInteraction ui = new UserInteraction();
-        if(neu.check(name, password) == "Willkommen."){
+        if(neu.check(name, password) == "Willkommen"){
             return "Ich würde die benötige Methode aus UserInteraction aufrufen, wenn es implementiert wäre.";
         }
         return "Ich würde dir keine Erlaubnis dafür geben, wenn es implementiert wäre";

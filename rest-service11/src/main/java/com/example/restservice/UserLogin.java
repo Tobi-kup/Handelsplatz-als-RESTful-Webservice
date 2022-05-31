@@ -30,7 +30,7 @@ public class UserLogin {
         if(name.equals("Max") && password.equals("MPasswort") ||
            name.equals("Fengyi") && password.equals("FPasswort") ||
            name.equals("Tobi") && password.equals("TPasswort")) {
-            ausgabe = "Willkommen.";
+            ausgabe = "Willkommen";
 
         } else if(name.equals("Max") || name.equals("Fengyi") ||  name.equals("Tobi")){
             ausgabe = "Das Passwort ist falsch!";
