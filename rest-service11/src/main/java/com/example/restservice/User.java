@@ -21,6 +21,31 @@ public class User {
         this.password = password;
     }
 
+    public String getName(){ return name; }
+
+    public String getpassword(){ return password; }
+
+    public int getCSGO_Case_Key(){ return CSGO_Case_Key; }
+
+    public int getDiscord_Nitro(){ return Discord_Nitro; }
+
+    public int getGrafikkarten(){ return Grafikkarten; }
+
+    public int getLSD(){ return LSD; }
+
+    public int getNFTs(){ return NFTs; }
+
+    public int getNieren(){ return Nieren; }
+
+    public int getRapsoel(){ return Rapsoel; }
+
+    public int getReddit_Karma(){ return Reddit_Karma; }
+
+    public int getToilettenpapier(){ return Toilettenpapier; }
+
+    public int getValorant_Points(){ return Valorant_Points; }
+
+
     public void verkaufeCSGO_Case_Key(){
         CSGO_Case_Key -=1;
     }
@@ -94,9 +119,7 @@ public class User {
         Reddit_Karma +=1;
     }
 
-    public void kaufeToilettenpapier(){
-        Toilettenpapier +=1;
-    }
+    public void kaufeToilettenpapier(){ Toilettenpapier +=1; }
 
     public void kaufeValorant_Points(){
         Valorant_Points +=1;
