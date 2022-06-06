@@ -6,16 +6,16 @@ import  java.util.*;
 @RestController
 public class UserInteraction {
 
-    public double Reddit_Karma_Preis = 0;
-    public double Valorant_Points_Preis = 0;
-    public double Toilettenpapier_Preis = 0;
-    public double Rapsoel_Preis = 0;
-    public double NFT_Preis = 0;
-    public double LSD_Preis = 0;
-    public double Grafikkarten_Preis = 0;
-    public double Discord_Nitro_Preis = 0;
-    public double CSGO_Case_Key_Preis = 0;
-    public double Nieren_Preis = 0;
+    public double Reddit_Karma_Preis = 1;
+    public double Valorant_Points_Preis = 1;
+    public double Toilettenpapier_Preis = 1;
+    public double Rapsoel_Preis = 1;
+    public double NFT_Preis = 1;
+    public double LSD_Preis = 1;
+    public double Grafikkarten_Preis = 1;
+    public double Discord_Nitro_Preis = 1;
+    public double CSGO_Case_Key_Preis = 1;
+    public double Nieren_Preis = 1;
 
     User[] users = new User[3];
     int aktuellerNutzer = 0;
@@ -101,23 +101,21 @@ public class UserInteraction {
                 if(users[i] != null){ anzahlExistenterNutzer++; }
         }
 
+
         for(int i=0; i<anzahlExistenterNutzer; i++) {
             if (users[i].getName().equals(name) && users[i].getPassword().equals(password)) {
                 aktuellerNutzer = i;
                 angemeldet = true;
                 ausgabe = "Login erfolgreich.";
+                return ausgabe;
+
+            } else if (users[i].getName().equals(name)) {
+                ausgabe = "Passwort ist falsch.";
+                return ausgabe;
             }
         }
 
-            if(ausgabe != "Login erfolgreich.") {
-                for (int j = 0; j < anzahlExistenterNutzer; j++) {
-                    if (users[j].equals(name)) {
-                        ausgabe = "Passwort ist falsch.";
-                    }
-                }
-            }
-
-            if(ausgabe != "Login erfolgreich.") { ausgabe = "Dieser Nutzer existiert nicht."; }
+             ausgabe = "Dieser Nutzer existiert nicht.";
 
         return ausgabe;
     }
@@ -383,7 +381,7 @@ public class UserInteraction {
     }
 
 
-        //bsp: http://localhost:8080/refresh?name=Max&password=MPasswort
+        //bsp: http://localhost:8080/refresh
     /**
      * Aktualisiert die Preise der angebotenen Güter auf Nutzeranfrage
      * @return erstmal nur einen angepassten String, der ausgibt, ob der Nutzer die nötigen Rechte besitz
@@ -405,6 +403,17 @@ public class UserInteraction {
             Discord_Nitro_Preis = r.rWalk(Discord_Nitro_Preis);
             CSGO_Case_Key_Preis = r.rWalk(CSGO_Case_Key_Preis);
             Nieren_Preis = r.rWalk(Nieren_Preis);
+
+            ausgabe = "Reddit_Karma_Preis: " + Reddit_Karma_Preis + "\n" +
+                    "Valorant_Points_Preis: " + Valorant_Points_Preis + "\n" +
+                    "Toilettenpapier_Preis: " + Toilettenpapier_Preis + "\n" +
+                    "Rapsoel_Preis: " + Rapsoel_Preis + "\n" +
+                    "NFT_Preis: " + NFT_Preis + "\n" +
+                    "LSD_Preis: " + LSD_Preis + "\n" +
+                    "Grafikkarten_Preis: " + Grafikkarten_Preis + "\n" +
+                    "Discord_Nitro_Preis: " + Discord_Nitro_Preis + "\n" +
+                    "CSGO_Case_Key_Preis: " + CSGO_Case_Key_Preis + "\n" +
+                    "Nieren_Preis: " + Nieren_Preis + "\n";
 
         } else ausgabe = "Sie sind nicht angemeldet";
         return ausgabe;

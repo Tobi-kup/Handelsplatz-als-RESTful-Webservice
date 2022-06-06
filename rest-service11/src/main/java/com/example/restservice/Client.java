@@ -7,6 +7,8 @@ public class Client {
         Scanner s = new Scanner(System.in);
         UserInteraction ui = new UserInteraction();
 
+        boolean angemeldet = false;
+
 
         public Client() {
 
@@ -25,7 +27,7 @@ public class Client {
                         System.out.println("Geben sie bitte ihren Nutzernamen und ihr  Passwort in dem Format \n <name> \n <password> \n ein.");
                         String name = s.nextLine();
                         String password = s.nextLine();
-                        ui.login(name, password);
+                        if(ui.login(name, password) == "Login erfolgreich") { angemeldet = true; }
                 }
 
 
