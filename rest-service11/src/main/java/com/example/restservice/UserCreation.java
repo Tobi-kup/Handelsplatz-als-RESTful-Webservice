@@ -34,6 +34,7 @@ public class UserCreation {
         newUser.put("NFTs", 0.0);
 
         FileWriter file = new FileWriter(directoryName + "/rest-service11/src/main/java/com/example/restservice/" + name + ".json");
+        //FileWriter file = new FileWriter(directoryName + "/src/main/java/com/example/restservice/" + name + ".json");
         file.write(newUser.toJSONString());
         file.close();
     }
