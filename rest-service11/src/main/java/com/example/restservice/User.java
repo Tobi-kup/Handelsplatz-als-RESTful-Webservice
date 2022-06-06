@@ -4,8 +4,9 @@ public class User {
 
     private String name;
     private String password;
+    Primogems coins = new Primogems();
 
-    private int CSGO_Case_Key = 0;
+    private int CSGO_Case_Keys = 0;
     private int Discord_Nitro = 0;
     private int Grafikkarten = 0;
     private int LSD = 0;
@@ -16,16 +17,20 @@ public class User {
     private int Toilettenpapier = 0;
     private int Valorant_Points = 0;
 
+
     public User(String name, String password){
         this.name = name;
         this.password = password;
     }
 
+
     public String getName(){ return name; }
 
-    public String getpassword(){ return password; }
+    public String getPassword(){ return password; }
 
-    public int getCSGO_Case_Key(){ return CSGO_Case_Key; }
+    public double getCoins(){ return coins.getMenge(); }
+
+    public int getCSGO_Case_Keys(){ return CSGO_Case_Keys; }
 
     public int getDiscord_Nitro(){ return Discord_Nitro; }
 
@@ -46,83 +51,91 @@ public class User {
     public int getValorant_Points(){ return Valorant_Points; }
 
 
-    public void verkaufeCSGO_Case_Key(){
-        CSGO_Case_Key -=1;
+
+    public void vermindereCoins(double i) { coins.vermindere(i); }
+
+    public void verkaufeCSGO_Case_Keys(int i){ CSGO_Case_Keys -=i; }
+
+    public void verkaufeDiscord_Nitro(int i){
+        Discord_Nitro -= i;
     }
 
-    public void verkaufeDiscord_Nitro(){
-        Discord_Nitro -=1;
+    public void verkaufeGrafikkarten(int i){
+        Grafikkarten -=i;
     }
 
-    public void verkaufeGrafikkarten(){
-        Grafikkarten -=1;
+    public void verkaufeLSD(int i){
+        LSD -=i;
     }
 
-    public void verkaufeLSD(){
-        LSD -=1;
+    public void verkaufeNFTs(int i){
+        NFTs -=i;
     }
 
-    public void verkaufeNFTs(){
-        NFTs -=1;
+    public void verkaufeNieren(int i){
+        Nieren -=i;
     }
 
-    public void verkaufeNieren(){
-        Nieren -=1;
+    public void verkaufeRapsoel(int i){
+        Rapsoel -=i;
     }
 
-    public void verkaufeRapsoel(){
-        Rapsoel -=1;
+    public void verkaufeReddit_Karma(int i){
+        Reddit_Karma -=i;
     }
 
-    public void verkaufeReddit_Karma(){
-        Reddit_Karma -=1;
+    public void verkaufeToilettenpapier(int i){
+        Toilettenpapier -=i;
     }
 
-    public void verkaufeToilettenpapier(){
-        Toilettenpapier -=1;
-    }
-
-    public void verkaufeValorant_Points(){
-        Valorant_Points -=1;
+    public void verkaufeValorant_Points(int i){
+        Valorant_Points -=i;
     }
 
 
-    public void kaufeCSGO_Case_Key(){
-        CSGO_Case_Key +=1;
+
+    public void erhoeheCoins(double i) { coins.erhoehe(i); }
+
+    public void kaufeCSGO_Case_Keys(int i){ CSGO_Case_Keys +=i; }
+
+    public void kaufeDiscord_Nitro(int i){
+        Discord_Nitro +=i;
     }
 
-    public void kaufeDiscord_Nitro(){
-        Discord_Nitro +=1;
+    public void kaufeGrafikkarten(int i){
+        Grafikkarten +=i;
     }
 
-    public void kaufeGrafikkarten(){
-        Grafikkarten +=1;
+    public void kaufeLSD(int i){
+        LSD +=i;
     }
 
-    public void kaufeLSD(){
-        LSD +=1;
+    public void kaufeNFTs(int i){
+        NFTs +=i;
     }
 
-    public void kaufeNFTs(){
-        NFTs +=1;
+    public void kaufeNieren(int i){
+        Nieren +=i;
     }
 
-    public void kaufeNieren(){
-        Nieren +=1;
+    public void kaufeRapsoel(int i){
+        Rapsoel +=i;
     }
 
-    public void kaufeRapsoel(){
-        Rapsoel +=1;
+    public void kaufeReddit_Karma(int i){
+        Reddit_Karma +=i;
     }
 
-    public void kaufeReddit_Karma(){
-        Reddit_Karma +=1;
+    public void kaufeToilettenpapier(int i){ Toilettenpapier +=i; }
+
+    public void kaufeValorant_Points(int i){
+        Valorant_Points +=i;
     }
 
-    public void kaufeToilettenpapier(){ Toilettenpapier +=1; }
 
-    public void kaufeValorant_Points(){
-        Valorant_Points +=1;
-    }
+
+    public void abheben(double value) { vermindereCoins(value); }
+
+    public void einzahlen(double value) { erhoeheCoins(value); }
 
 }

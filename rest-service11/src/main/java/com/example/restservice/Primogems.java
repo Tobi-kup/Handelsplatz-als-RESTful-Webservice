@@ -4,27 +4,20 @@ import java.io.Serializable;
 
 public class Primogems implements Serializable{
 
-    private int menge;
-    private int preis;
+    private double menge;
 
 
-    public Primogems(){}
+    public Primogems(){ menge = 0; }
+
 
     public void setMenge(int menge){
         this.menge = menge;
     }
 
-    public int getMenge(){
-        return menge;
-    }
+    public double getMenge(){ return menge; }
 
+    public void erhoehe(double i){ menge += i; }
 
-    public void setPreis(int preis){
-        this.preis = preis;
-    }
-
-    public int getPreis(){
-        return preis;
-    }
+    public void vermindere (double i){ menge -= i; }
 
 }
