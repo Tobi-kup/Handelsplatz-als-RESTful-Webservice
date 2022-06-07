@@ -45,7 +45,7 @@ public class ClientMitMain {
 
                 //Einloggen:
             } else if (eingabe.equals("l")) {
-                System.out.println("Geben sie bitte ihren Nutzernamen und ihr Passwort in dem Format \n <name> \n <password> \n ein.");
+                System.out.println("Geben sie bitte ihren Nutzernamen und ihr Passwort in dem Format \nname\npassword\nein.");
                 name = s.nextLine();
                 password = s.nextLine();
                 ausgabe = ui.login(name, password);
