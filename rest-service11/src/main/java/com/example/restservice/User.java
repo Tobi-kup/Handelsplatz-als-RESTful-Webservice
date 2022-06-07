@@ -4,7 +4,7 @@ public class User {
 
     private String name;
     private String password;
-    Primogems coins = new Primogems();
+    Primogems coins = new Primogems(1000);
 
     private int CSGO_Case_Keys = 0;
     private int Discord_Nitro = 0;

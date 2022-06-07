@@ -67,43 +67,84 @@ public class ClientMitMain {
             }
         }
 
+        System.out.println("\nGeben sie 'help' ein, um alle akzeptierten Befehle anzuzeigen.\n");
+
+        while (angemeldet == true) {
+
+            eingabe = s.nextLine();
 
 
-//        //Einloggen nach Registrierung
-//        if (angemeldet == false) {
-//            System.out.println("Melden Sie sich nun auf die Eingabe 'l' folgend mit ihrem Konto an, um auf den Markt zu gelagen.");
-//            if(eingabe.equals("l")){
-//                System.out.println("Geben sie bitte ihren Nutzernamen und ihr  Passwort in dem Format \n <name> \n <password> \n ein.");
-//                name = s.nextLine();
-//                password = s.nextLine();
-//                if(ui.login(name, password) == "Login erfolgreich") { angemeldet = true; }
-//            }
-//        }
+            //Verfügbare Befehle ausgeben
+            if (eingabe.equals("help")) {
+                System.out.println("");
+                System.out.println("Moechten Sie etwas kaufen, etwas verkaufen, sich Informationen ueber ihr Konto ausgeben lassen, die Preise aktualisieren, Geld abzuheben, Geld einzahlen oder sich ausloggen?");
+                System.out.println("Geben Sie 'buy' ein, um Gueter zu erwerben.");
+                System.out.println("Geben Sie 'sell' ein, um Gueter zu verkaufen.");
+                System.out.println("Geben Sie 'info' ein, um Informationen ueber ihr Konto zu erhalten.");
+                System.out.println("Geben Sie 'refresh' ein, um die Preise zu aktualisieren.");
+                System.out.println("Geben Sie 'withdraw' um Geld abzuheben.");
+                System.out.println("Geben Sie 'deposit' um Geld einzuzahlen.");
+                System.out.println("Geben Sie 'logout' ein, um sich auszuloggen." + "\n");
+            }
 
 
-//        if (angemeldet == true) { System.out.println("Willkommen,"+ name +" " ); }
-//
-//            while(angemeldet == true){
-//                if(eingabe.equals("kaufen")) {
-//                    String item = "";
-//                    int amount = 0;
-//                    System.out.println("Welches Gegenstand?");
-//                    item = s.nextLine();
-//                    System.out.println("Wie viele davon?");
-//                    amount = s.nextInt();
-//                    System.out.println(ui.buy(item, amount));
-//                }
-//                if(eingabe.equals("verkaufen")) {
-//                    String item = "";
-//                    int amount = 0;
-//                    System.out.println("Welches Gegenstand?");
-//                    item = s.nextLine();
-//                    System.out.println("Wie viele davon?");
-//                    amount = s.nextInt();
-//                    System.out.println(ui.sell(item, amount));
-//                }
-//
-//            }
+            //Güter kaufen:
+            if (eingabe.equals("buy")) {
+                System.out.println("Welches Gut moechten Sie erwerben?");
+                System.out.println("Es stehen folgende Gueter zur Auswahl: \n1.Reddit_Karma\n2.Valorant_Point\n3.Toilettenpapier\n4.Rapsoel\n5.NFT\n6.LSD\n7.Grafikkarten\n8.Discord_Nitro\n9.CSGO_Case_Keys\n10.Nieren\n");
+                System.out.println("Bitte geben Sie den Namen den Gutes genau so wie genannt ein.");
+                String item = s.nextLine();
+                System.out.println("Wie viele moechten Sie erwerben?");
+                int amount = s.nextInt();
+                System.out.println(ui.buy(item, amount) + "\n");
+            }
+
+
+            //Güter verkaufen:
+            if (eingabe.equals("sell")) {
+                System.out.println("Welches Gut moechten Sie verkaufen?");
+                String item = s.nextLine();
+                System.out.println("Wie viele moechten Sie verkaufen?");
+                int amount = s.nextInt();
+                System.out.println(ui.sell(item, amount) + "\n");
+            }
+
+
+            //Preise aktualisieren
+            if (eingabe.equals("refresh")) {
+                System.out.println("Die Preise haben sich veraendert ;) \n");
+                System.out.println(ui.refresh());
+            }
+
+
+            //Kontoinformationen ausgeben
+            if (eingabe.equals("info")) {
+                System.out.println("Sie haben folgendes im Inventar: ");
+                System.out.println(ui.UserInfo());
+            }
+
+
+            //Geld abheben
+            if (eingabe.equals("withdraw")) {
+                System.out.println("Wie viele Primogems sollen abgehoben werden?");
+                double menge = s.nextDouble();
+                System.out.println(ui.withdraw(menge) + "\n");
+            }
+
+
+            //Geld einzahlen
+            if (eingabe.equals("deposit")) {
+                System.out.println("Wie viele Primogems sollen eingezahlt werden?");
+                double menge = s.nextDouble();
+                System.out.println(ui.deposit(menge) + "\n");
+            }
+
+
+            //Ausloggen
+            if (eingabe.equals("logout")) {
+                angemeldet = false;
+            }
         }
 
+      }
     }

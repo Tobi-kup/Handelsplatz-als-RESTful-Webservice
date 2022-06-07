@@ -19,7 +19,7 @@ public class UserInteraction {
 
     User[] users = new User[3];
     int aktuellerNutzer = 0;
-    boolean angemeldet = false;
+    //boolean angemeldet = false;
 
 
     public UserInteraction(){}
@@ -105,7 +105,7 @@ public class UserInteraction {
         for(int i=0; i<anzahlExistenterNutzer; i++) {
             if (users[i].getName().equals(name) && users[i].getPassword().equals(password)) {
                 aktuellerNutzer = i;
-                angemeldet = true;
+                //angemeldet = true;
                 ausgabe = "Login erfolgreich.";
                 return ausgabe;
 
@@ -129,10 +129,10 @@ public class UserInteraction {
     @GetMapping("/info")
     public String UserInfo() {
         String ausgabe = "";
-        if (angemeldet == true) {
+        //if (angemeldet == true) {
 
             ausgabe = "Primogems: " + users[aktuellerNutzer].getCoins() +
-                      "\nGüter:\n" +
+                      "\nGueter:\n" +
                       "Reddit_Karma: " + users[aktuellerNutzer].getReddit_Karma() +
                       "\nVP_Points: " + users[aktuellerNutzer].getValorant_Points() +
                       "\nToilettenpapier: " + users[aktuellerNutzer].getToilettenpapier() +
@@ -141,10 +141,10 @@ public class UserInteraction {
                       "\nLSD: " + users[aktuellerNutzer].getLSD() +
                       "\nGrafikkarten: " + users[aktuellerNutzer].getGrafikkarten() +
                       "\nDiscord_Nitro: " + users[aktuellerNutzer].getDiscord_Nitro() +
-                      "\nNieren" + users[aktuellerNutzer].getNieren() +
-                     "\nCSGO_Case_Keys: " + users[aktuellerNutzer].getCSGO_Case_Keys() + "\n";
+                      "\nNieren: " + users[aktuellerNutzer].getNieren() +
+                      "\nCSGO_Case_Keys: " + users[aktuellerNutzer].getCSGO_Case_Keys() + "\n";
 
-        } else ausgabe = "Sie sind nicht angemeldet.";
+       // } else ausgabe = "Sie sind nicht angemeldet.";
 
         return ausgabe;
     }
@@ -162,7 +162,7 @@ public class UserInteraction {
     public String buy(@RequestParam(value = "item") String item, @RequestParam(value = "amount") int amount) {
         String ausgabe = "";
 
-        if (angemeldet == true) {
+        //if (angemeldet == true) {
 
             switch(item) {
                 case "Reddit_Karma":
@@ -205,7 +205,7 @@ public class UserInteraction {
                     if(users[aktuellerNutzer].getCoins() - (amount * NFT_Preis)>=0) {
                         users[aktuellerNutzer].kaufeNFTs(amount);
                         users[aktuellerNutzer].vermindereCoins(NFT_Preis * amount);
-                        ausgabe = "Kauf erfolgreich abgeschlossen, es waren NFTS sind Sie sich dem bewusst???";
+                        ausgabe = "Kauf erfolgreich abgeschlossen";
                     }else
                         ausgabe = "Sie haben nicht genug Primogems.";
                     break;
@@ -256,10 +256,10 @@ public class UserInteraction {
                     break;
 
                 default:
-                    ausgabe = "Ungültige Eingabe, dieses Gut wird nicht angeboten.";
+                    ausgabe = "Ungueltige Eingabe, dieses Gut wird nicht angeboten.";
             }
 
-        } else ausgabe = "Sie sind nicht angemeldet";
+      //  } else ausgabe = "Sie sind nicht angemeldet";
 
         return ausgabe;
     }
@@ -277,7 +277,7 @@ public class UserInteraction {
     public String sell(@RequestParam(value = "item") String item, @RequestParam(value = "amount") int amount) {
         String ausgabe = "";
 
-        if (angemeldet == true) {
+    //    if (angemeldet == true) {
 
             switch(item) {
                 case "Reddit_Karma":
@@ -317,7 +317,7 @@ public class UserInteraction {
                         ausgabe = "Sie besitzen nicht so viel Rapsoel";
                     break;
 
-                case "NFTs":
+                case "NFT":
                     if(users[aktuellerNutzer].getNFTs() >= amount) {
                         users[aktuellerNutzer].verkaufeNFTs(amount);
                         users[aktuellerNutzer].erhoeheCoins(NFT_Preis * amount);
@@ -372,10 +372,10 @@ public class UserInteraction {
                     break;
 
                 default:
-                    ausgabe = "Ungültige Eingabe, dieses Gut wird nicht angeboten.";
+                    ausgabe = "Ungueltige Eingabe, dieses Gut wird nicht angeboten.";
             }
 
-        } else ausgabe = "Sie sind nicht angemeldet";
+       // } else ausgabe = "Sie sind nicht angemeldet";
 
         return ausgabe;
     }
@@ -389,7 +389,7 @@ public class UserInteraction {
     @GetMapping("/refresh")
     public String refresh() {
         String ausgabe = "";
-        if (angemeldet == true) {
+       // if (angemeldet == true) {
 
             Randomwalk r = new Randomwalk();
 
@@ -415,7 +415,41 @@ public class UserInteraction {
                     "CSGO_Case_Key_Preis: " + CSGO_Case_Key_Preis + "\n" +
                     "Nieren_Preis: " + Nieren_Preis + "\n";
 
-        } else ausgabe = "Sie sind nicht angemeldet";
+       // } else ausgabe = "Sie sind nicht angemeldet";
+        return ausgabe;
+    }
+
+
+    //bsp: http://localhost:8080/withdraw
+    /**
+     * Zieht die eingebene Menge an Primogems vom Benutzkonto ab
+     * @param amount - Menge der Primogems, die abgehoben werden soll
+     * @return einen String, der angibt, ob der Abzug erfolgreich war
+     */
+    @GetMapping("/withdraw")
+    public String withdraw(@RequestParam(value = "amount") double amount) {
+        String ausgabe = "";
+        if(users[aktuellerNutzer].getCoins() >= amount) {
+            users[aktuellerNutzer].abheben(amount);
+            ausgabe = "Sie haben erfolgreich " + amount + " Primogems abgehoben.";
+
+        } else ausgabe = "So viele Primogems haben Sie nicht auf dem Konto";
+
+        return ausgabe;
+    }
+
+
+    //bsp: http://localhost:8080/withdraw
+    /**
+     * Zahlt die eingebene Menge an Primogems in das Benutzkonto ein
+     * @param amount - Menge der Primogems, die eingezahlt werden soll
+     * @return einen String, der angibt, ob die Einzahlung erfolgreich war
+     */
+    @GetMapping("/deposit")
+    public String deposit(@RequestParam(value = "amount") double amount) {
+            users[aktuellerNutzer].einzahlen(amount);
+            String ausgabe = "Sie haben erfolgreich " +amount+ " Primogems in ihr Konto eingezahlt.";
+
         return ausgabe;
     }
 

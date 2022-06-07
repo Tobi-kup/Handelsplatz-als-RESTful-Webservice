@@ -7,7 +7,7 @@ public class Primogems implements Serializable{
     private double menge;
 
 
-    public Primogems(){ menge = 0; }
+    public Primogems(double menge){ this.menge = menge; }
 
 
     public void setMenge(int menge){
