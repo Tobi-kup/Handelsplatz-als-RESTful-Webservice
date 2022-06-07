@@ -152,6 +152,7 @@ public class UserInteractionMitJSON {
     public String UserInfo() throws IOException, ParseException {
         String ausgabe = "";
 
+
         String name = users[aktuellerNutzer];
         Object o = new JSONParser().parse(new FileReader(name + ".json"));
         JSONObject js = (JSONObject) o;
