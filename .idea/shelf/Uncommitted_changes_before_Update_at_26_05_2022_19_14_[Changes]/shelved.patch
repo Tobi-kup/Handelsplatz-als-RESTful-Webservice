@@ -1,0 +1,23 @@
+Index: rest-service11/src/main/java/com/example/restservice/RestApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.restservice;\r\n\r\nimport javax.ws.rs.ApplicationPath;\r\nimport javax.ws.rs.core.Application;\r\n\r\n@ApplicationPath (\"/kunde\")\r\npublic class RestApplication extends Application{}\r\n
+===================================================================
+diff --git a/rest-service11/src/main/java/com/example/restservice/RestApplication.java b/rest-service11/src/main/java/com/example/restservice/RestApplication.java
+--- a/rest-service11/src/main/java/com/example/restservice/RestApplication.java	
++++ b/rest-service11/src/main/java/com/example/restservice/RestApplication.java	
+@@ -1,7 +1,7 @@
+-package com.example.restservice;
+-
+-import javax.ws.rs.ApplicationPath;
+-import javax.ws.rs.core.Application;
+-
+-@ApplicationPath ("/kunde")
+-public class RestApplication extends Application{}
++//package com.example.restservice;
++//
++//import javax.ws.rs.ApplicationPath;
++//import javax.ws.rs.core.Application;
++//
++//@ApplicationPath ("/kunde")
++//public class RestApplication extends Application{}
