@@ -18,15 +18,15 @@ public class ClientMitMain {
 
         String eingabe = "";
 
-        while(angemeldet == false || registered == false) {
-            System.out.println("Möchten Sie sich registrieren oder einloggen? \n" +
-                    "Wählen Sie 'r' um sich zu registrieren oder 'l' um sich einzuloggen.");
+        while (angemeldet == false || registered == false) {
+            System.out.println("Moechten Sie sich registrieren oder einloggen? \n" +
+                               "Waehlen Sie 'r' um sich zu registrieren oder 'l' um sich einzuloggen.");
 
             eingabe = s.nextLine();
 
             //Registrieren:
             if (eingabe.equals("r")) {
-                System.out.println("Geben sie bitte ihren gewünschten Nutzernamen und ihr gewünschtes Passwort in dem Format \n <name> \n <password> \n ein.");
+                System.out.println("Geben sie bitte ihren gewuenschten Nutzernamen und ihr gewuenschtes Passwort in dem Format \n <name> \n <password> \n ein.");
                 name = s.nextLine();
                 password = s.nextLine();
                 ausgabe = ui.signup(name, password);
@@ -148,3 +148,4 @@ public class ClientMitMain {
 
       }
     }
+

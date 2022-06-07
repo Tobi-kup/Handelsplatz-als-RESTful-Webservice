@@ -6,16 +6,16 @@ import  java.util.*;
 @RestController
 public class UserInteraction {
 
-    public double Reddit_Karma_Preis = 1;
-    public double Valorant_Points_Preis = 1;
+    public double Reddit_Karma_Preis = 0.01;
+    public double Valorant_Points_Preis = 0.01;
     public double Toilettenpapier_Preis = 1;
-    public double Rapsoel_Preis = 1;
-    public double NFT_Preis = 1;
-    public double LSD_Preis = 1;
-    public double Grafikkarten_Preis = 1;
-    public double Discord_Nitro_Preis = 1;
-    public double CSGO_Case_Key_Preis = 1;
-    public double Nieren_Preis = 1;
+    public double Rapsoel_Preis = 5;
+    public double NFT_Preis = 2000;
+    public double LSD_Preis = 20;
+    public double Grafikkarten_Preis = 500;
+    public double Discord_Nitro_Preis = 10;
+    public double CSGO_Case_Key_Preis = 15;
+    public double Nieren_Preis = 37000;
 
     User[] users = new User[3];
     int aktuellerNutzer = 0;

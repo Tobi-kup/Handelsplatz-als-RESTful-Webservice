@@ -41,6 +41,7 @@ public class Client {
                         //befehl dass angemeldete User als Json datei findet
 
                         while(angemeldet = true){
+
                                 if(eingabe.equals("kaufen")) {
                                         String item = "";
                                         int amount = 0;
@@ -58,6 +59,15 @@ public class Client {
                                         System.out.println("Wie viele davon?");
                                         amount = s.nextInt();
                                         System.out.println(ui.sell(item, amount));
+                                }
+                                if(eingabe.equals("aktualisieren")) {
+                                        System.out.println("Die Preise haben sich verändert ;)");
+                                        System.out.println(ui.refresh());
+                                }
+                                if (eingabe.equals("infos")) {
+                                        System.out.println("Sie haben folgendes im Inventar: ");
+                                        System.out.println(ui.UserInfo());
+
                                 }
 
                 }
