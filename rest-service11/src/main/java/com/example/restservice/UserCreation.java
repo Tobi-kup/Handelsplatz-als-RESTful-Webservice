@@ -31,6 +31,5 @@ public class UserCreation {
              file.write(newUser.toJSONString());
              file.close();
 
-
     }
 }
