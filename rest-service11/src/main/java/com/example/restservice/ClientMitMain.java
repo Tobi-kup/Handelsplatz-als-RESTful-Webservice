@@ -26,7 +26,7 @@ public class ClientMitMain {
 
             //Registrieren:
             if (eingabe.equals("r")) {
-                System.out.println("Geben sie bitte ihren gewuenschten Nutzernamen und ihr gewuenschtes Passwort in dem Format \n <name> \n <password> \n ein.");
+                System.out.println("Geben sie bitte ihren gewuenschten Nutzernamen und ihr gewuenschtes Passwort in dem Format \nname \npassword\nein.");
                 name = s.nextLine();
                 password = s.nextLine();
                 ausgabe = ui.signup(name, password);
