@@ -466,8 +466,7 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/delete
     /**
-     * Fordert den Nutzer auf seine gewünschten Zugangsdaten zu wählen und somit einen Account zu erstellen,
-     * wenn dieser Nutzer nicht bereits existiert, und noch genügend Platz für einen weiteren ist, wird der neue Nutzer in das Array  mitaufgenommen.
+     * Löscht das Konto des angemeldeten Benutzers, indem jede Varaible auf den leeren String gesetzt wird
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
      */
     @GetMapping("/delete")
@@ -482,11 +481,30 @@ public class UserInteractionMitJSON {
         String name = users[aktuellerNutzer];
         users[aktuellerNutzer] = null;
 
+        Object o = new JSONParser().parse(new FileReader(name + ".json"));
+        JSONObject js = (JSONObject) o;
+        js.put("name", "");
+        js.put("password", "");
+        js.put("balance", "");
+        js.put("RedditKarma", "");
+        js.put("VpPoints", "");
+        js.put("Toilettenpapier", "");
+        js.put("Rapsoel", "");
+        js.put("NFTs", "");
+        js.put("LSD", "");
+        js.put("Grafikkarten", "");
+        js.put("Nieren", "");
+        js.put("DiscordNitro", "");
+        js.put("CsgoCaseKeys", "");
 
-        Path path = Paths.get("");
-        String directoryName = path.toAbsolutePath().toString() + "\\" + name + ".json";
-        File f = new File(directoryName);
-        f.deleteOnExit();
+        FileWriter file = new FileWriter(  name + ".json");
+        file.write(js.toJSONString());
+        file.close();
+
+//        Path path = Paths.get("");
+//        String directoryName = path.toAbsolutePath().toString() + "\\" + name + ".json";
+//        File f = new File(directoryName);
+//        f.deleteOnExit();
 
         ausgabe = "Konto erfolgreich geloescht";
 
@@ -497,7 +515,7 @@ public class UserInteractionMitJSON {
     //bsp: http://localhost:8080/refresh
     /**
      * Aktualisiert die Preise der angebotenen Güter auf Nutzeranfrage
-     * @return erstmal nur einen angepassten String, der ausgibt, ob der Nutzer die nötigen Rechte besitz
+     * @return einen String, der alle neuen Preise enthält
      */
     @GetMapping("/refresh")
     public String refresh() {

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="195502c3-0f82-4e12-a396-fe6104fabfa2" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/rest-service11/Max.json" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service11/Max.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/UserCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/UserCreation.java" afterDir="false" />
+    <list default="true" id="195502c3-0f82-4e12-a396-fe6104fabfa2" name="Changes" comment="Client alles funktioniert bis auf die delete-Methode">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service11/Max.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/ClientUeberURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/ClientUeberURL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/UserInteractionMitJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/UserInteractionMitJSON.java" afterDir="false" />
     </list>
     <list id="93eb0a9c-5697-458f-bcd7-250f3a3610bb" name="Changes by ipoop" comment="updated" />
@@ -23,6 +24,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/rest-service11">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -36,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
+        <option value="HTTP Request" />
         <option value="Class" />
       </list>
     </option>
@@ -52,11 +57,15 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="29QUpDK0IDW3yHwXS45dkb7uDC6" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -69,12 +78,12 @@
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/.jdks/json-20220320.jar" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
-  <component name="RunManager" selected="Gradle.RestServiceApplicationTests">
+  <component name="RunManager" selected="Application.ClientUeberURL">
     <configuration name="ClientMitMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.restservice.ClientMitMain" />
       <module name="rest-service.main" />
@@ -88,8 +97,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserCreation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.restservice.UserCreation" />
+    <configuration name="ClientUEberURL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.restservice.ClientUEberURL" />
       <module name="rest-service.main" />
       <extension name="coverage">
         <pattern>
@@ -101,12 +110,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RestServiceApplicationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ClientUeberURL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.restservice.ClientUeberURL" />
+      <module name="rest-service.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.restservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests in 'rest-service'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/rest-service11" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.restservice.RestServiceApplicationTests&quot;" />
+        <option name="scriptParameters" value="--tests *" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -122,6 +144,9 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="All in Test" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/Test.http">
+      <method v="2" />
+    </configuration>
     <configuration name="RestServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="rest-service.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.restservice.RestServiceApplication" />
@@ -131,9 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.RestServiceApplicationTests" />
+        <item itemvalue="Gradle.Tests in 'rest-service'" />
+        <item itemvalue="Application.ClientUeberURL" />
+        <item itemvalue="Application.ClientUEberURL" />
+        <item itemvalue="HTTP Request.All in Test" />
         <item itemvalue="Application.ClientMitMain" />
-        <item itemvalue="Application.UserCreation" />
       </list>
     </recent_temporary>
   </component>
@@ -170,7 +197,9 @@
       <workItem from="1654611179691" duration="504000" />
       <workItem from="1654611744821" duration="343000" />
       <workItem from="1654616704690" duration="6611000" />
-      <workItem from="1654623410734" duration="5464000" />
+      <workItem from="1654623410734" duration="5622000" />
+      <workItem from="1654686224973" duration="21504000" />
+      <workItem from="1654715048136" duration="824000" />
     </task>
     <task id="LOCAL-00001" summary="ersten 5/10 Güter-Klassen upload">
       <created>1653213947417</created>
@@ -305,7 +334,42 @@
       <option name="project" value="LOCAL" />
       <updated>1654625640148</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="UserInteractionMitJSON funktioniert bis zur buy-Methode">
+      <created>1654629038215</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1654629038215</updated>
+    </task>
+    <task id="LOCAL-00021" summary="UserInteractionMitJSON funktioniert bis zur buy-Methode">
+      <created>1654629054922</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1654629054922</updated>
+    </task>
+    <task id="LOCAL-00022" summary="UserInteractionMitJSON ale Methoden fertig">
+      <created>1654688589665</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1654688589665</updated>
+    </task>
+    <task id="LOCAL-00023" summary="ClientUeberURL funktioniert vollständig über URIs">
+      <created>1654693715018</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1654693715018</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Client alles funktioniert bis auf die delete-Methode">
+      <created>1654707681712</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1654707681712</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +388,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="ersten 5/10 Güter-Klassen upload" />
     <MESSAGE value="Attribut Preis zu ersten 5/10 Güter-Klassen hinzugefügt" />
     <MESSAGE value="UserLogin über den Browser ausführbar gemacht" />
@@ -340,6 +405,10 @@
     <MESSAGE value="UserInteractionMitJSON angefangen" />
     <MESSAGE value="updated" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="UserInteractionMitJSON funktioniert bis zur buy-Methode" />
+    <MESSAGE value="UserInteractionMitJSON ale Methoden fertig" />
+    <MESSAGE value="ClientUeberURL funktioniert vollständig über URIs" />
+    <MESSAGE value="Client alles funktioniert bis auf die delete-Methode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Client alles funktioniert bis auf die delete-Methode" />
   </component>
 </project>
