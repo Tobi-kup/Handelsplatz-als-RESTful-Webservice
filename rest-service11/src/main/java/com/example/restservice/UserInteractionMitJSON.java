@@ -126,7 +126,7 @@ public class UserInteractionMitJSON {
             for (int i = 0; i < anzahlExistenterNutzer; i++) {
                 if (users[i].equals(name) && pw.equals(password)) {
                     aktuellerNutzer = i;
-                    ausgabe = "Login erfolgreich.";
+                    ausgabe = "Login erfolgreich." ;
                     return ausgabe;
 
                 } else if (users[i].equals(name)) {
@@ -209,8 +209,6 @@ public class UserInteractionMitJSON {
         double Discord_Nitro = (double) js.get("DiscordNitro");
         double Nieren = (double) js.get("Nieren");
         double CSGO_Case_Keys = (double) js.get("CsgoCaseKeys");
-        String pw = (String) js.get("password");
-        String n = (String) js.get("name");
 
         switch(item) {
             case "Reddit_Karma":
@@ -307,214 +305,258 @@ public class UserInteractionMitJSON {
                 ausgabe = "Ungueltige Eingabe, dieses Gut wird nicht angeboten.";
         }
 
-        JSONObject js2 = new JSONObject();
-        js2.put("name", n);
-        js2.put("password", pw);
-        js2.put("balance", Primogems);
-        js2.put("RedditKarma", RedditKarma);
-        js2.put("VpPoints", VP_Points);
-        js2.put("Toilettenpapier", Toilettenpapier);
-        js2.put("Rapsoel", Rapsoel);
-        js2.put("NFTs", NFTs);
-        js2.put("LSD", LSD);
-        js2.put("Grafikkarten", Grafikkarten);
-        js2.put("Nieren", Nieren);
-        js2.put("DiscordNitro", Discord_Nitro);
-        js2.put("CsgoCaseKeys", CSGO_Case_Keys);
+
+        js.put("balance", Primogems);
+        js.put("RedditKarma", RedditKarma);
+        js.put("VpPoints", VP_Points);
+        js.put("Toilettenpapier", Toilettenpapier);
+        js.put("Rapsoel", Rapsoel);
+        js.put("NFTs", NFTs);
+        js.put("LSD", LSD);
+        js.put("Grafikkarten", Grafikkarten);
+        js.put("Nieren", Nieren);
+        js.put("DiscordNitro", Discord_Nitro);
+        js.put("CsgoCaseKeys", CSGO_Case_Keys);
 
         FileWriter file = new FileWriter(  name + ".json");
-        file.write(js2.toJSONString());
+        file.write(js.toJSONString());
         file.close();
 
         return ausgabe;
     }
 
 
-//    //bsp: http://localhost:8080/sell?item=Valorant_Points&amount=1
-//    /**
-//     * Verkauft angegebenes Gut für den aktuellen Preis auf Nutzeranfrage
-//     * Vermindert dafür entsprechend die Menge des Gutes innerhalb des Nutzerkontos und erhöht dessen Kontostand.
-//     * @param item - Gut, das verkauft werden soll
-//     * @param amount - Menge, die verkauft werden soll
-//     * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
-//     */
-//    @GetMapping("/sell")
-//    public String sell(@RequestParam(value = "item") String item, @RequestParam(value = "amount") int amount) {
-//        String ausgabe = "";
-//
-//        //    if (angemeldet == true) {
-//
-//        switch(item) {
-//            case "Reddit_Karma":
-//                if(users[aktuellerNutzer].getReddit_Karma() >= amount) {
-//                    users[aktuellerNutzer].verkaufeReddit_Karma(amount);
-//                    users[aktuellerNutzer].erhoeheCoins(Reddit_Karma_Preis * amount);
-//                    ausgabe = "Verkauf erfolgreich abgeschlossen.";
-//                }else
-//                    ausgabe = "Sie besitzen nicht so viel Reddit_Karma";
-//                break;
-//
-//            case "Valorant_Points":
-//                if(users[aktuellerNutzer].getValorant_Points() >= amount) {
-//                    users[aktuellerNutzer].verkaufeValorant_Points(amount);
-//                    users[aktuellerNutzer].erhoeheCoins(Valorant_Points_Preis * amount);
-//                    ausgabe = "Verkauf erfolgreich abgeschlossen.";
-//                }else
-//                    ausgabe = "Sie besitzen nicht so viele Valorant_Points";
-//                break;
-//
-//            case "Toilettenpapier":
-//                if(users[aktuellerNutzer].getToilettenpapier() >= amount) {
-//                    users[aktuellerNutzer].verkaufeToilettenpapier(amount);
-//                    users[aktuellerNutzer].erhoeheCoins(Toilettenpapier_Preis * amount);
-//                    ausgabe = "Verkauf erfolgreich abgeschlossen.";
-//                }else
-//                    ausgabe = "Sie besitzen nicht so viel Toilettenpapier";
-//                break;
-//
-//
-//            case "Rapsoel":
-//                if(users[aktuellerNutzer].getRapsoel() >= amount) {
-//                    users[aktuellerNutzer].verkaufeRapsoel(amount);
-//                    users[aktuellerNutzer].erhoeheCoins(Rapsoel_Preis * amount);
-//                    ausgabe = "Verkauf erfolgreich abgeschlossen.";
-//                }else
-//                    ausgabe = "Sie besitzen nicht so viel Rapsoel";
-//                break;
-//
-//            case "NFT":
-//                if(users[aktuellerNutzer].getNFTs() >= amount) {
-//                    users[aktuellerNutzer].verkaufeNFTs(amount);
-//                    users[aktuellerNutzer].erhoeheCoins(NFT_Preis * amount);
-//                    ausgabe = "Verkauf erfolgreich abgeschlossen.";
-//                }else
-//                    ausgabe = "Sie besitzen nicht so viele NFTs";
-//                break;
-//
-//            case "LSD":
-//                if(users[aktuellerNutzer].getLSD() >= amount) {
-//                    users[aktuellerNutzer].verkaufeLSD(amount);
-//                    users[aktuellerNutzer].erhoeheCoins(LSD_Preis * amount);
-//                    ausgabe = "Verkauf erfolgreich abgeschlossen.";
-//                }else
-//                    ausgabe = "Sie besitzen nicht so viel LSD";
-//                break;
-//
-//            case "Grafikkarten":
-//                if(users[aktuellerNutzer].getGrafikkarten() >= amount) {
-//                    users[aktuellerNutzer].verkaufeGrafikkarten(amount);
-//                    users[aktuellerNutzer].erhoeheCoins(Grafikkarten_Preis * amount);
-//                    ausgabe = "Verkauf erfolgreich abgeschlossen.";
-//                }else
-//                    ausgabe = "Sie besitzen nicht so viele Grafikkarten";
-//                break;
-//
-//            case "Discord_Nitro":
-//                if(users[aktuellerNutzer].getDiscord_Nitro() >= amount) {
-//                    users[aktuellerNutzer].verkaufeDiscord_Nitro(amount);
-//                    users[aktuellerNutzer].erhoeheCoins(Discord_Nitro_Preis * amount);
-//                    ausgabe = "Verkauf erfolgreich abgeschlossen.";
-//                }else
-//                    ausgabe = "Sie besitzen nicht so viel Discord_Nitro";
-//                break;
-//
-//            case "CSGO_Case_Key":
-//                if(users[aktuellerNutzer].getCSGO_Case_Keys() >= amount) {
-//                    users[aktuellerNutzer].verkaufeCSGO_Case_Keys(amount);
-//                    users[aktuellerNutzer].erhoeheCoins(CSGO_Case_Key_Preis * amount);
-//                    ausgabe = "Verkauf erfolgreich abgeschlossen.";
-//                }else
-//                    ausgabe = "Sie besitzen nicht so viele CSGO_Case_Keys";
-//                break;
-//
-//            case "Nieren":
-//                if(users[aktuellerNutzer].getNieren() >= amount) {
-//                    users[aktuellerNutzer].verkaufeNieren(amount);
-//                    users[aktuellerNutzer].erhoeheCoins(Nieren_Preis * amount);
-//                    ausgabe = "Verkauf erfolgreich abgeschlossen.";
-//                }else
-//                    ausgabe = "Sie besitzen nicht so viele Nieren";
-//                break;
-//
-//            default:
-//                ausgabe = "Ungueltige Eingabe, dieses Gut wird nicht angeboten.";
-//        }
-//
-//        // } else ausgabe = "Sie sind nicht angemeldet";
-//
-//        return ausgabe;
-//    }
-//
-//
-//    //bsp: http://localhost:8080/refresh
-//    /**
-//     * Aktualisiert die Preise der angebotenen Güter auf Nutzeranfrage
-//     * @return erstmal nur einen angepassten String, der ausgibt, ob der Nutzer die nötigen Rechte besitz
-//     */
-//    @GetMapping("/refresh")
-//    public String refresh() {
-//        String ausgabe = "";
-//        // if (angemeldet == true) {
-//
-//        Randomwalk r = new Randomwalk();
-//
-//        Reddit_Karma_Preis = r.rWalk(Reddit_Karma_Preis);
-//        Valorant_Points_Preis = r.rWalk(Valorant_Points_Preis);
-//        Toilettenpapier_Preis = r.rWalk(Toilettenpapier_Preis);
-//        Rapsoel_Preis = r.rWalk(Rapsoel_Preis);
-//        NFT_Preis = r.rWalk(NFT_Preis);
-//        LSD_Preis = r.rWalk(LSD_Preis);
-//        Grafikkarten_Preis = r.rWalk(Grafikkarten_Preis);
-//        Discord_Nitro_Preis = r.rWalk(Discord_Nitro_Preis);
-//        CSGO_Case_Key_Preis = r.rWalk(CSGO_Case_Key_Preis);
-//        Nieren_Preis = r.rWalk(Nieren_Preis);
-//
-//        ausgabe = "Reddit_Karma_Preis: " + Reddit_Karma_Preis + "\n" +
-//                "Valorant_Points_Preis: " + Valorant_Points_Preis + "\n" +
-//                "Toilettenpapier_Preis: " + Toilettenpapier_Preis + "\n" +
-//                "Rapsoel_Preis: " + Rapsoel_Preis + "\n" +
-//                "NFT_Preis: " + NFT_Preis + "\n" +
-//                "LSD_Preis: " + LSD_Preis + "\n" +
-//                "Grafikkarten_Preis: " + Grafikkarten_Preis + "\n" +
-//                "Discord_Nitro_Preis: " + Discord_Nitro_Preis + "\n" +
-//                "CSGO_Case_Key_Preis: " + CSGO_Case_Key_Preis + "\n" +
-//                "Nieren_Preis: " + Nieren_Preis + "\n";
-//
-//        // } else ausgabe = "Sie sind nicht angemeldet";
-//        return ausgabe;
-//    }
-//
-//
-//    //bsp: http://localhost:8080/withdraw
-//    /**
-//     * Zieht die eingebene Menge an Primogems vom Benutzkonto ab
-//     * @param amount - Menge der Primogems, die abgehoben werden soll
-//     * @return einen String, der angibt, ob der Abzug erfolgreich war
-//     */
-//    @GetMapping("/withdraw")
-//    public String withdraw(@RequestParam(value = "amount") double amount) {
-//        String ausgabe = "";
-//        if(users[aktuellerNutzer].getCoins() >= amount) {
-//            users[aktuellerNutzer].abheben(amount);
-//            ausgabe = "Sie haben erfolgreich " + amount + " Primogems abgehoben.";
-//
-//        } else ausgabe = "So viele Primogems haben Sie nicht auf dem Konto";
-//
-//        return ausgabe;
-//    }
-//
-//
-//    //bsp: http://localhost:8080/withdraw
-//    /**
-//     * Zahlt die eingebene Menge an Primogems in das Benutzkonto ein
-//     * @param amount - Menge der Primogems, die eingezahlt werden soll
-//     * @return einen String, der angibt, ob die Einzahlung erfolgreich war
-//     */
-//    @GetMapping("/deposit")
-//    public String deposit(@RequestParam(value = "amount") double amount) {
-//        users[aktuellerNutzer].einzahlen(amount);
-//        String ausgabe = "Sie haben erfolgreich " +amount+ " Primogems in ihr Konto eingezahlt.";
-//
-//        return ausgabe;
-//    }
+    //bsp: http://localhost:8080/sell?item=Valorant_Points&amount=1
+    /**
+     * Verkauft angegebenes Gut für den aktuellen Preis auf Nutzeranfrage
+     * Vermindert dafür entsprechend die Menge des Gutes innerhalb des Nutzerkontos und erhöht dessen Kontostand.
+     * @param item - Gut, das verkauft werden soll
+     * @param amount - Menge, die verkauft werden soll
+     * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
+     */
+    @GetMapping("/sell")
+    public String sell(@RequestParam(value = "item") String item, @RequestParam(value = "amount") int amount) throws IOException, ParseException {
+        String ausgabe = "";
+
+        String name = users[aktuellerNutzer];
+        Object o = new JSONParser().parse(new FileReader(name + ".json"));
+        JSONObject js = (JSONObject) o;
+
+        double Primogems = (double) js.get("balance");
+        double RedditKarma = (double) js.get("RedditKarma");
+        double VP_Points = (double) js.get("VpPoints");
+        double Toilettenpapier = (double) js.get("Toilettenpapier");
+        double Rapsoel = (double) js.get("Rapsoel");
+        double NFTs = (double) js.get("NFTs");
+        double LSD = (double) js.get("LSD");
+        double Grafikkarten = (double) js.get("Grafikkarten");
+        double Discord_Nitro = (double) js.get("DiscordNitro");
+        double Nieren = (double) js.get("Nieren");
+        double CSGO_Case_Keys = (double) js.get("CsgoCaseKeys");
+
+        switch(item) {
+            case "Reddit_Karma":
+                if(RedditKarma >= amount) {
+                    RedditKarma -= amount;
+                    Primogems += amount*Reddit_Karma_Preis;
+                    ausgabe = "Verkauf erfolgreich abgeschlossen";
+                }else
+                    ausgabe = "Sie besitzen nicht so viel Reddit_Karma";
+                break;
+
+            case "Valorant_Points":
+                if(VP_Points >= amount) {
+                    VP_Points -= amount;
+                    Primogems += amount*Valorant_Points_Preis;
+                    ausgabe = "Verkauf erfolgreich abgeschlossen";
+                }else
+                    ausgabe = "Sie besitzen nicht so viele Valorant_Points";
+                break;
+
+            case "Toilettenpapier":
+                if(Toilettenpapier >= amount) {
+                    Toilettenpapier -= amount;
+                    Primogems += amount*Toilettenpapier_Preis;
+                    ausgabe = "Verkauf erfolgreich abgeschlossen";
+                }else
+                    ausgabe = "Sie besitzen nicht so viel Toilettenpapier";
+                break;
+
+            case "Rapsoel":
+                if(Rapsoel >= amount) {
+                    Rapsoel -= amount;
+                    Primogems += amount*Rapsoel_Preis;
+                    ausgabe = "Verkauf erfolgreich abgeschlossen";
+                }else
+                    ausgabe = "Sie besitzen nicht so viel Rapsoel";
+                break;
+
+            case "NFT":
+                if(NFTs >= amount) {
+                    NFTs -= amount;
+                    Primogems += amount*NFT_Preis;
+                    ausgabe = "Verkauf erfolgreich abgeschlossen";
+                }else
+                    ausgabe = "Sie besitzen nicht so viele NFTs";
+                break;
+
+            case "LSD":
+                if(LSD >= amount) {
+                    LSD -= amount;
+                    Primogems += amount*LSD_Preis;
+                    ausgabe = "Verkauf erfolgreich abgeschlossen";
+                }else
+                    ausgabe = "Sie besitzen nicht so viel LSD";
+                break;
+
+            case "Grafikkarten":
+                if(Grafikkarten >= amount) {
+                    Grafikkarten -= amount;
+                    Primogems += amount*Grafikkarten_Preis;
+                    ausgabe = "Verkauf erfolgreich abgeschlossen";
+                }else
+                    ausgabe = "Sie besitzen nicht so viele Grafikkarten";
+                break;
+
+            case "Discord_Nitro":
+                if(Discord_Nitro >= amount) {
+                    Discord_Nitro -= amount;
+                    Primogems += amount*Discord_Nitro_Preis;
+                    ausgabe = "Verkauf erfolgreich abgeschlossen";
+                }else
+                    ausgabe = "Sie besitzen nicht so viel Discord_Nitro";
+                break;
+
+            case "CSGO_Case_Key":
+                if(CSGO_Case_Keys >= amount) {
+                    CSGO_Case_Keys -= amount;
+                    Primogems += amount*CSGO_Case_Key_Preis;
+                    ausgabe = "Verkauf erfolgreich abgeschlossen";
+                }else
+                    ausgabe = "Sie besitzen nicht so viele CSGO_Case_Keys";
+                break;
+
+            case "Nieren":
+                if(Nieren >= amount) {
+                    Nieren -= amount;
+                    Primogems += amount*Nieren_Preis;
+                    ausgabe = "Verkauf erfolgreich abgeschlossen";
+                }else
+                    ausgabe = "Sie besitzen nicht so viele Nieren";
+                break;
+
+            default:
+                ausgabe = "Ungueltige Eingabe, dieses Gut wird nicht angeboten.";
+        }
+
+        js.put("balance", Primogems);
+        js.put("RedditKarma", RedditKarma);
+        js.put("VpPoints", VP_Points);
+        js.put("Toilettenpapier", Toilettenpapier);
+        js.put("Rapsoel", Rapsoel);
+        js.put("NFTs", NFTs);
+        js.put("LSD", LSD);
+        js.put("Grafikkarten", Grafikkarten);
+        js.put("Nieren", Nieren);
+        js.put("DiscordNitro", Discord_Nitro);
+        js.put("CsgoCaseKeys", CSGO_Case_Keys);
+
+        FileWriter file = new FileWriter(  name + ".json");
+        file.write(js.toJSONString());
+        file.close();
+
+        return ausgabe;
+    }
+
+
+    //bsp: http://localhost:8080/refresh
+    /**
+     * Aktualisiert die Preise der angebotenen Güter auf Nutzeranfrage
+     * @return erstmal nur einen angepassten String, der ausgibt, ob der Nutzer die nötigen Rechte besitz
+     */
+    @GetMapping("/refresh")
+    public String refresh() {
+        String ausgabe = "";
+
+        Randomwalk r = new Randomwalk();
+
+        Reddit_Karma_Preis = r.rWalk(Reddit_Karma_Preis);
+        Valorant_Points_Preis = r.rWalk(Valorant_Points_Preis);
+        Toilettenpapier_Preis = r.rWalk(Toilettenpapier_Preis);
+        Rapsoel_Preis = r.rWalk(Rapsoel_Preis);
+        NFT_Preis = r.rWalk(NFT_Preis);
+        LSD_Preis = r.rWalk(LSD_Preis);
+        Grafikkarten_Preis = r.rWalk(Grafikkarten_Preis);
+        Discord_Nitro_Preis = r.rWalk(Discord_Nitro_Preis);
+        CSGO_Case_Key_Preis = r.rWalk(CSGO_Case_Key_Preis);
+        Nieren_Preis = r.rWalk(Nieren_Preis);
+
+        ausgabe = "Reddit_Karma_Preis: " + Reddit_Karma_Preis + "\n" +
+                "Valorant_Points_Preis: " + Valorant_Points_Preis + "\n" +
+                "Toilettenpapier_Preis: " + Toilettenpapier_Preis + "\n" +
+                "Rapsoel_Preis: " + Rapsoel_Preis + "\n" +
+                "NFT_Preis: " + NFT_Preis + "\n" +
+                "LSD_Preis: " + LSD_Preis + "\n" +
+                "Grafikkarten_Preis: " + Grafikkarten_Preis + "\n" +
+                "Discord_Nitro_Preis: " + Discord_Nitro_Preis + "\n" +
+                "CSGO_Case_Key_Preis: " + CSGO_Case_Key_Preis + "\n" +
+                "Nieren_Preis: " + Nieren_Preis + "\n";
+
+        return ausgabe;
+    }
+
+
+    //bsp: http://localhost:8080/withdraw?amount=10
+    /**
+     * Zieht die eingebene Menge an Primogems vom Benutzkonto ab
+     * @param amount - Menge der Primogems, die abgehoben werden soll
+     * @return einen String, der angibt, ob der Abzug erfolgreich war
+     */
+    @GetMapping("/withdraw")
+    public String withdraw(@RequestParam(value = "amount") double amount) throws IOException, ParseException {
+        String ausgabe = "";
+
+        String name = users[aktuellerNutzer];
+        Object o = new JSONParser().parse(new FileReader(name + ".json"));
+        JSONObject js = (JSONObject) o;
+
+        double Primogems = (double) js.get("balance");
+
+        if(Primogems >= amount) {
+            Primogems -= amount;
+            js.put("balance", Primogems);
+            FileWriter file = new FileWriter(  name + ".json");
+            file.write(js.toJSONString());
+            file.close();
+            ausgabe = "Sie haben erfolgreich " + amount + " Primogems abgehoben.";
+
+        } else ausgabe = "So viele Primogems haben Sie nicht auf dem Konto";
+
+        return ausgabe;
+    }
+
+
+    //bsp: http://localhost:8080/deposit?amount=10
+    /**
+     * Zahlt die eingebene Menge an Primogems in das Benutzkonto ein
+     * @param amount - Menge der Primogems, die eingezahlt werden soll
+     * @return einen String, der angibt, ob die Einzahlung erfolgreich war
+     */
+    @GetMapping("/deposit")
+    public String deposit(@RequestParam(value = "amount") double amount) throws IOException, ParseException {
+        String name = users[aktuellerNutzer];
+        Object o = new JSONParser().parse(new FileReader(name + ".json"));
+        JSONObject js = (JSONObject) o;
+
+        double Primogems = (double) js.get("balance");
+
+        Primogems += amount;
+        js.put("balance", Primogems);
+        FileWriter file = new FileWriter(  name + ".json");
+        file.write(js.toJSONString());
+        file.close();
+        String ausgabe = "Sie haben erfolgreich " +amount+ " Primogems in ihr Konto eingezahlt.";
+
+        return ausgabe;
+    }
 }
