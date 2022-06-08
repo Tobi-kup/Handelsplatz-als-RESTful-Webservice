@@ -1,13 +1,14 @@
 package com.example.restservice;
 import org.json.simple.parser.ParseException;
 import org.springframework.web.client.RestTemplate;
-
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.*;
+
 
 public class ClientUeberURL {
 
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void main(String[] args) throws IOException, ParseException, URISyntaxException {
 
 
         String name;
@@ -88,9 +89,10 @@ public class ClientUeberURL {
                 System.out.println("Geben Sie 'sell' ein, um Gueter zu verkaufen.");
                 System.out.println("Geben Sie 'info' ein, um Informationen ueber ihr Konto zu erhalten.");
                 System.out.println("Geben Sie 'refresh' ein, um die Preise zu aktualisieren.");
-                System.out.println("Geben Sie 'withdraw' um Geld abzuheben.");
-                System.out.println("Geben Sie 'deposit' um Geld einzuzahlen.");
+                System.out.println("Geben Sie 'withdraw' ein, um Geld abzuheben.");
+                System.out.println("Geben Sie 'deposit' ein, um Geld einzuzahlen.");
                 System.out.println("Geben Sie 'logout' ein, um sich auszuloggen." + "\n");
+                System.out.println("Geben Sie 'delete' ein, um ihr Konto zu löschen.");
             }
 
 
@@ -147,6 +149,13 @@ public class ClientUeberURL {
 
             //Ausloggen
             if (eingabe.equals("logout")) {
+                angemeldet = false;
+            }
+
+
+            //Konto löschen
+            if (eingabe.equals("delete")) {
+                System.out.println(rt.getForObject("http://localhost:8080/delete", String.class));
                 angemeldet = false;
             }
         }

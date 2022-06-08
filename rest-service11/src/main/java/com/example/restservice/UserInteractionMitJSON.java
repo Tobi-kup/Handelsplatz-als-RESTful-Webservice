@@ -3,14 +3,9 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.web.bind.annotation.*;
 import org.json.simple.*;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import  java.util.*;
 
 @RestController
 public class UserInteractionMitJSON {
@@ -469,6 +464,36 @@ public class UserInteractionMitJSON {
     }
 
 
+    //bsp: http://localhost:8080/delete
+    /**
+     * Fordert den Nutzer auf seine gewünschten Zugangsdaten zu wählen und somit einen Account zu erstellen,
+     * wenn dieser Nutzer nicht bereits existiert, und noch genügend Platz für einen weiteren ist, wird der neue Nutzer in das Array  mitaufgenommen.
+     * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
+     */
+    @GetMapping("/delete")
+    public String delete() throws IOException, ParseException {
+        String ausgabe = "";
+
+        if(users[aktuellerNutzer] == null){
+            ausgabe = "Sie müssen angemeldet sein, um ihr Konto zu löschen.";
+            return ausgabe;
+        }
+
+        String name = users[aktuellerNutzer];
+        users[aktuellerNutzer] = null;
+
+
+        Path path = Paths.get("");
+        String directoryName = path.toAbsolutePath().toString() + "\\" + name + ".json";
+        File f = new File(directoryName);
+        f.deleteOnExit();
+
+        ausgabe = "Konto erfolgreich geloescht";
+
+        return ausgabe;
+    }
+
+
     //bsp: http://localhost:8080/refresh
     /**
      * Aktualisiert die Preise der angebotenen Güter auf Nutzeranfrage
@@ -558,5 +583,15 @@ public class UserInteractionMitJSON {
         String ausgabe = "Sie haben erfolgreich " +amount+ " Primogems in ihr Konto eingezahlt.";
 
         return ausgabe;
+    }
+
+
+    //bsp: http://localhost:8080/shutdown
+    /**
+     *Schließt den Server
+     */
+    @GetMapping("/shutdown")
+    public void shutdown(){
+        System.exit(0);
     }
 }
