@@ -44,7 +44,7 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/registeredUsers
     /**
-     * Listet alle registrierten Nutzer auf
+     * Listet alle registrierten Nutzer auf.
      * @return einen String, der alle registrierten Nutzer auflistet
      */
     @GetMapping("/registeredUsers")
@@ -106,7 +106,7 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/login?name=Max&password=MPasswort
     /**
-     * Fragt den Nutzer nach seinen Nutzerdaten, um ihm den Zugang zu gewähren
+     * Fragt den Nutzer nach seinen Nutzerdaten, um ihm den Zugang zu gewähren.
      * @param name - Name des Nutzerprofils vom Typ String
      * @param password - Passwort des Nutzerprofils vom Typ String
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
@@ -487,7 +487,7 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/delete
     /**
-     * Löscht das Konto des angemeldeten Benutzers, indem jede Variable auf den leeren String gesetzt wird
+     * Löscht das Konto des angemeldeten Benutzers, indem jede Variable auf den leeren String gesetzt wird.
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
      * @throws IOException
      * @throws ParseException
@@ -537,7 +537,7 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/refresh
     /**
-     * Aktualisiert die Preise der angebotenen Güter auf Nutzeranfrage
+     * Aktualisiert die Preise der angebotenen Güter auf Nutzeranfrage.
      * @return einen String, der alle neuen Preise enthält
      */
     @GetMapping("/refresh")
@@ -606,7 +606,7 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/deposit?amount=10
     /**
-     * Zahlt die eingebene Menge an Primogems in das Benutzkonto ein
+     * Zahlt die eingebene Menge an Primogems in das Benutzkonto ein.
      * @param amount - Menge der Primogems, die eingezahlt werden soll
      * @return einen String, der angibt, ob die Einzahlung erfolgreich war
      * @throws IOException
@@ -633,7 +633,7 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/shutdown
     /**
-     *Schließt den Server
+     *Schließt den Server.
      */
     @GetMapping("/shutdown")
     public void shutdown(){
