@@ -138,7 +138,10 @@ public class ClientUeberURL {
             }
 
 
-            //Geld einzahlen
+            /**
+             * Zahlt den eingegebenen Wert auf den Kontostand des Benutzerkontos mit der deposit Methode in UserInteraction durch aufrufen der URL ein
+             * checkt die Eingabe von menge und ruft die URI mit dem entsprechenden Wert auf
+             */
             if (eingabe.equals("deposit")) {
                 System.out.println("Wie viele Primogems sollen eingezahlt werden?");
                 double menge = s.nextDouble();
@@ -146,13 +149,18 @@ public class ClientUeberURL {
             }
 
 
-            //Ausloggen
+            /**
+             * beendet die aktuelle Schleife und somit den Client, wenn der Benutzer "logout" eingibt
+             */
             if (eingabe.equals("logout")) {
                 angemeldet = false;
             }
 
 
-            //Konto löschen
+            /**
+             * Ruft die URI für das Löschen des aktuell angemeldeten Nutzerkontos auf
+             * beendet die aktuelle Schleife und somit den Client
+             */
             if (eingabe.equals("delete")) {
                 System.out.println(rt.getForObject("http://localhost:8080/delete", String.class));
                 angemeldet = false;
