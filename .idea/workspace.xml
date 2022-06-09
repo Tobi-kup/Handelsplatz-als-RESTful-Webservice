@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="195502c3-0f82-4e12-a396-fe6104fabfa2" name="Changes" comment="Client alles funktioniert bis auf die delete-Methode">
+      <change beforePath="$PROJECT_DIR$/.idea/Projekt2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projekt2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service11/Max.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/ClientMitMain.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/ClientUeberURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/ClientUeberURL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/UserInteractionMitJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/UserInteractionMitJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/Primogems.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/Test.http" beforeDir="false" />
     </list>
     <list id="93eb0a9c-5697-458f-bcd7-250f3a3610bb" name="Changes by ipoop" comment="updated" />
     <option name="SHOW_DIALOG" value="false" />
