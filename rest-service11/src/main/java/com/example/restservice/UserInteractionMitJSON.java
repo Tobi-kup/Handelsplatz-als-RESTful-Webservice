@@ -67,6 +67,7 @@ public class UserInteractionMitJSON {
      * @param name - Name des Nutzerprofils vom Typ String
      * @param password - Passwort des Nutzerprofils vom Typ String
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
+     * @throws IOException
      */
     @GetMapping("/signup")
     public String signup(@RequestParam(value = "name") String name, @RequestParam(value = "password") String password) throws IOException {
@@ -153,6 +154,8 @@ public class UserInteractionMitJSON {
     /**
      * Gibt den Kontostand des Nutzers und jeweils die Menge der Güter, die er besitzt, aus, wenn ein Nutzer angemeldet ist
      * @return einen String, der den Kontostand und die Güter des Nutzes ausgibt, oder, dass kein Nutzer angemeldet ist.
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/info")
     public String UserInfo() throws IOException, ParseException {
@@ -198,6 +201,8 @@ public class UserInteractionMitJSON {
      * @param item - Gut, das gekauft werden soll
      * @param amount - Menge, die gekauft werden soll
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/buy")
     public String buy(@RequestParam(value = "item") String item, @RequestParam(value = "amount") int amount) throws IOException, ParseException {
@@ -342,6 +347,8 @@ public class UserInteractionMitJSON {
      * @param item - Gut, das verkauft werden soll
      * @param amount - Menge, die verkauft werden soll
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/sell")
     public String sell(@RequestParam(value = "item") String item, @RequestParam(value = "amount") int amount) throws IOException, ParseException {
@@ -482,6 +489,8 @@ public class UserInteractionMitJSON {
     /**
      * Löscht das Konto des angemeldeten Benutzers, indem jede Variable auf den leeren String gesetzt wird
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/delete")
     public String delete() throws IOException, ParseException {
@@ -568,6 +577,8 @@ public class UserInteractionMitJSON {
      * Zieht die eingebene Menge an Primogems vom Benutzkonto ab
      * @param amount - Menge der Primogems, die abgehoben werden soll
      * @return einen String, der angibt, ob der Abzug erfolgreich war
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/withdraw")
     public String withdraw(@RequestParam(value = "amount") double amount) throws IOException, ParseException {
@@ -598,6 +609,8 @@ public class UserInteractionMitJSON {
      * Zahlt die eingebene Menge an Primogems in das Benutzkonto ein
      * @param amount - Menge der Primogems, die eingezahlt werden soll
      * @return einen String, der angibt, ob die Einzahlung erfolgreich war
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/deposit")
     public String deposit(@RequestParam(value = "amount") double amount) throws IOException, ParseException {
