@@ -557,16 +557,43 @@ public class UserInteractionMitJSON {
         CSGO_Case_Key_Preis = r.rWalk(CSGO_Case_Key_Preis);
         Nieren_Preis = r.rWalk(Nieren_Preis);
 
-        ausgabe = "Reddit_Karma_Preis: " + Reddit_Karma_Preis + "\n" +
-                "Valorant_Points_Preis: " + Valorant_Points_Preis + "\n" +
-                "Toilettenpapier_Preis: " + Toilettenpapier_Preis + "\n" +
-                "Rapsoel_Preis: " + Rapsoel_Preis + "\n" +
-                "NFT_Preis: " + NFT_Preis + "\n" +
-                "LSD_Preis: " + LSD_Preis + "\n" +
-                "Grafikkarten_Preis: " + Grafikkarten_Preis + "\n" +
-                "Discord_Nitro_Preis: " + Discord_Nitro_Preis + "\n" +
-                "CSGO_Case_Key_Preis: " + CSGO_Case_Key_Preis + "\n" +
-                "Nieren_Preis: " + Nieren_Preis + "\n";
+        ausgabe = "\n" +
+                "Reddit Karma    : " + Reddit_Karma_Preis + " Primogems\n" +
+                "Valorant Points : " + Valorant_Points_Preis + " Primogems\n" +
+                "Toilettenpapier : " + Toilettenpapier_Preis + " Primogems\n" +
+                "Rapsoel         : " + Rapsoel_Preis + " Primogems\n" +
+                "NFTs            : " + NFT_Preis + " Primogems\n" +
+                "LSD             : " + LSD_Preis + " Primogems\n" +
+                "Grafikkarten    : " + Grafikkarten_Preis + " Primogems\n" +
+                "Discord Nitro   : " + Discord_Nitro_Preis + " Primogems\n" +
+                "CSGO Case Key   : " + CSGO_Case_Key_Preis + " Primogems\n" +
+                "Nieren          : " + Nieren_Preis + " Primogems\n";
+
+        return ausgabe;
+    }
+
+
+    //bsp: http://localhost:8080/prices
+    /**
+     * Gibt die aktuellen Preise der angebotenen Güter auf Nutzeranfrage aus.
+     * @return einen String, der alle Preise enthält
+     */
+    @GetMapping("/prices")
+    public String prices() {
+        String ausgabe = "";
+
+        ausgabe = "\n" +
+                "Reddit Karma    : " + Reddit_Karma_Preis + " Primogems\n" +
+                "Valorant Points : " + Valorant_Points_Preis + " Primogems\n" +
+                "Toilettenpapier : " + Toilettenpapier_Preis + " Primogems\n" +
+                "Rapsoel         : " + Rapsoel_Preis + " Primogems\n" +
+                "NFTs            : " + NFT_Preis + " Primogems\n" +
+                "LSD             : " + LSD_Preis + " Primogems\n" +
+                "Grafikkarten    : " + Grafikkarten_Preis + " Primogems\n" +
+                "Discord Nitro   : " + Discord_Nitro_Preis + " Primogems\n" +
+                "CSGO Case Key   : " + CSGO_Case_Key_Preis + " Primogems\n" +
+                "Nieren          : " + Nieren_Preis + " Primogems\n";
+
 
         return ausgabe;
     }

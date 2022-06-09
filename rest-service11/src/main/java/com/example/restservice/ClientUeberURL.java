@@ -115,15 +115,16 @@ public class ClientUeberURL {
                 System.out.println("Geben Sie 'sell' ein, um Gueter zu verkaufen.");
                 System.out.println("Geben Sie 'info' ein, um Informationen ueber ihr Konto zu erhalten.");
                 System.out.println("Geben Sie 'refresh' ein, um die Preise zu aktualisieren.");
+                System.out.println("Geben Sie 'prices' ein, um die die aktuellen Preise ausgegeben zu bekommen.");
                 System.out.println("Geben Sie 'withdraw' ein, um Geld abzuheben.");
                 System.out.println("Geben Sie 'deposit' ein, um Geld einzuzahlen.");
-                System.out.println("Geben Sie 'logout' ein, um sich auszuloggen." + "\n");
-                System.out.println("Geben Sie 'delete' ein, um ihr Konto zu löschen.");
+                System.out.println("Geben Sie 'logout' ein, um sich auszuloggen.");
+                System.out.println("Geben Sie 'delete' ein, um ihr Konto zu loeschen.\n");
             }
 
 
             /**
-             * Kauft Güter mit der buy Methode in Userinteraction durch Aufrufen der URI
+             * Kauft Güter mit der buy Methode in UserInteraction durch Aufrufen der URI
              * checkt die Eingabe von item und anzahl und ruft die URI mit den entsprechenden Werten auf
              */
             if (eingabe.equals("buy")) {
@@ -138,7 +139,7 @@ public class ClientUeberURL {
 
 
             /**
-             * Verkauft Güter mit der sell Methode in Userinteraction durch Aufrufen der URI
+             * Verkauft Güter mit der sell Methode in UserInteraction durch Aufrufen der URI
              * checkt die Eingabe von item und anzahl und ruft die URI mit den entsprechenden Werten auf
              */
             if (eingabe.equals("sell")) {
@@ -151,7 +152,7 @@ public class ClientUeberURL {
 
 
             /**
-             * aktualisiert die Güterpreise mit der refresh Methode in Userinteraction durch Aufrufen des URI
+             * aktualisiert die Güterpreise mit der refresh Methode in UserInteraction durch Aufrufen der URI
              */
             if (eingabe.equals("refresh")) {
                 System.out.println("Die Preise haben sich veraendert ;) \n");
@@ -160,7 +161,16 @@ public class ClientUeberURL {
 
 
             /**
-             * Gibt die Kontoinformationen des Benutzers mit der info Methode in Userinteraction durch Aufrufen der URI aus
+             * gibt die aktuellen Güterpreise mit der prices Methode in UserInteraction durch Aufrufen der URI aus
+             */
+            if (eingabe.equals("prices")) {
+                System.out.println("Dies sind die aktuellen Gueterpreise:\n");
+                System.out.println(rt.getForObject("http://localhost:8080/prices", String.class));
+            }
+
+
+            /**
+             * Gibt die Kontoinformationen des Benutzers mit der info Methode in UserInteraction durch Aufrufen der URI aus
              */
             if (eingabe.equals("info")) {
                 System.out.println(rt.getForObject("http://localhost:8080/info", String.class));
