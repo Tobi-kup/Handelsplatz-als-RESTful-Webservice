@@ -32,57 +32,57 @@ Server:
 
 - @GetMapping("/registeredUsers"):
 Gibt einen String aller Namen der registrierten Benutzkontos aus
-URI: http://localhost:8080/registeredUsers
+URI:" http://localhost:8080/registeredUsers"
 
 - @GetMapping("/signup"): 
 @RequestParam(value = "name") String name, @RequestParam(value = "password") String password
 Benötigt als Eingabe einen Namen und ein Passwort. Erstellt ein neues Bentzkonto.
-URI: http://localhost:8080/signup?name=<name>&password=<password>
+URI: "http://localhost:8080/signup?name=<name>&password=<password>"
 
 - @GetMapping("/login"): 
 @RequestParam(value = "name") String name, @RequestParam(value = "password") String password
 Benötigt als Eingabe einen Namen und ein Passwort. Gewährt dem Benutzer bei Erfolg Zugang zum Server.
-URI: http://localhost:8080/login?name=<name>&password=<password>
+URI: "http://localhost:8080/login?name=<name>&password=<password>"
 
 - @GetMapping("/info"): 
 Gibt einen String aller Kontoinformationen des angemeldeten Benutzkontos aus.
-URI: http://localhost:8080/info
+URI: "http://localhost:8080/info"
 
 - @GetMapping("/buy"):
 @RequestParam(value = "item") String item, @RequestParam(value = "amount") int amount
 Benötigt als Eingabe ein Gut und eine Menge. Erhöht je nachdem die Menge des Gutes innerhalb des Benutzerkontos und verringert den Kontostand.
-URI: http://localhost:8080/buy?item=<item>&amount=<amount>
+URI: "http://localhost:8080/buy?item=<item>&amount=<amount>"
 
 - @GetMapping("/sell"): 
 @RequestParam(value = "item") String item, @RequestParam(value = "amount") int amount
 Benötigt als Eingabe ein Gut und eine Menge. Verinngert je nachdem die Menge des Gutes innerhalb des Benutzerkontos und erhöht den Kontostand.
-URI: http://localhost:8080/sell?item=<item>&amount=<amount>
+URI: "http://localhost:8080/sell?item=<item>&amount=<amount>"
 
 - @GetMapping("/delete"): 
 Setzt alle Variablen des angemeldeten Kontos auf den leeren String.
-URI: http://localhost:8080/delete
+URI: "http://localhost:8080/delete"
 
 - @GetMapping("/refresh"): 
 Aktualisiert die Preise und gibt die neuen Preise als String aus.
-URI: http://localhost:8080/refresh
+URI: "http://localhost:8080/refresh"
 
 - @GetMapping("/prices"): 
 Gibt die aktuellen Preise als String aus
-URI: http://localhost:8080/prices
+URI: "http://localhost:8080/prices"
 
 - @GetMapping("/withdraw"): 
 @RequestParam(value = "amount") double amount
 Benötigt als Eingabe eine Menge. Zieht die Menge vom Kontostand des angemeldeten Benutzerkontos ab, wenn die Menge kleiner gleich dem Kontostand ist.
-URI: http://localhost:8080/withdraw?amount=<amount>
+URI: "http://localhost:8080/withdraw?amount=<amount>"
 
 - @GetMapping("/deposit"):
 @RequestParam(value = "amount") double amount
 Benötigt als Eingabe eine Menge. Erhöht den Kontostand des angemeldeten Benutzerkontos um die angegebene Menge.
-URI: http://localhost:8080/deposit?amount=<amount>
+URI: "http://localhost:8080/deposit?amount=<amount>"
 
 - @GetMapping("/shutdown"): 
 Schließt den Server.
-URI: http://localhost:8080/shutdown
+URI: "http://localhost:8080/shutdown"
 
 
 Client:
