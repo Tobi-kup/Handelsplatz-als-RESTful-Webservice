@@ -7,9 +7,22 @@ import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+
+/** UserInteractionMitJSON ist die Klasse zur Erstellung der URIs, sie ist der Server des Projektes.
+ * Sie erstellt die Pfade innerhalb des Marktplatzes.
+ * Der Client soll diesen dann folgen, um sich auf dem Server zurechzufinden.
+ */
+
 @RestController
 public class UserInteractionMitJSON {
 
+    /**
+     * 10 Attribute vom Typ double, die die Preise der Güter festlegen
+     * Sie können mit einer Methode beim Betrieb des Servers verändert werden
+     * 1 Attribut vom Typ int, das die Stelle des aktuell angemeldeten Nutzers innerhalb des Arrays speichert
+     * 1 Arrays vom Typ String, das die Namen der registrierten Nutzer speichert
+     * 1 Instanz der Klasse UserCreation, die bei der Registrierung verwendet wird, um neue Nutzer zu erstellen
+     */
     public double Reddit_Karma_Preis = 0.1;
     public double Valorant_Points_Preis = 0.01;
     public double Toilettenpapier_Preis = 1;
@@ -31,8 +44,8 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/registeredUsers
     /**
-     * Listet alle registrierten Nutzer auf
-     * @return einen String, der alle  registrierten Nutzer auflistet
+     * Listet alle registrierten Nutzer auf.
+     * @return einen String, der alle registrierten Nutzer auflistet
      */
     @GetMapping("/registeredUsers")
     public String alle() {
@@ -49,10 +62,12 @@ public class UserInteractionMitJSON {
     //bsp: http://localhost:8080/signup?name=Max&password=MPasswort
     /**
      * Fordert den Nutzer auf seine gewünschten Zugangsdaten zu wählen und somit einen Account zu erstellen,
-     * wenn dieser Nutzer nicht bereits existiert, und noch genügend Platz für einen weiteren ist, wird der neue Nutzer in das Array  mitaufgenommen.
+     * wenn dieser Nutzer nicht bereits existiert, und noch genügend Platz für einen weiteren vorhanden ist, wird der neue Nutzer in das Array mitaufgenommen
+     * und eine neue JSON Datei mit den Daten des Nutzers kreiert.
      * @param name - Name des Nutzerprofils vom Typ String
      * @param password - Passwort des Nutzerprofils vom Typ String
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
+     * @throws IOException
      */
     @GetMapping("/signup")
     public String signup(@RequestParam(value = "name") String name, @RequestParam(value = "password") String password) throws IOException {
@@ -91,7 +106,7 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/login?name=Max&password=MPasswort
     /**
-     * Fragt den Nutzer nach seinen Nutzerdaten, um ihm den Zugang zu gewähren
+     * Fragt den Nutzer nach seinen Nutzerdaten, um ihm den Zugang zu gewähren.
      * @param name - Name des Nutzerprofils vom Typ String
      * @param password - Passwort des Nutzerprofils vom Typ String
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
@@ -138,7 +153,9 @@ public class UserInteractionMitJSON {
     //bsp: http://localhost:8080/info
     /**
      * Gibt den Kontostand des Nutzers und jeweils die Menge der Güter, die er besitzt, aus, wenn ein Nutzer angemeldet ist
-     * @return einen String, der den Kontostand die und die Güter des Nutzes ausgibt, oder, dass kein Nutzer angemeldet ist.
+     * @return einen String, der den Kontostand und die Güter des Nutzes ausgibt, oder, dass kein Nutzer angemeldet ist.
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/info")
     public String UserInfo() throws IOException, ParseException {
@@ -179,11 +196,13 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/buy?item=Reddit_Karma&amount=1
     /**
-     * Kauft angegebenes Gut für den aktuellen Preis auf Nutzeranfrage
-     * Erhöht dafür entsprechend die Menge des Gutes innerhalb des Nutzerkontos und vermindert dessen Kontostand.
+     * Kauft angegebene Menge des angegebenen Gutes für den aktuellen Marktpreis auf Nutzeranfrag,
+     * erhöht dafür entsprechend die Menge des Gutes innerhalb des Nutzerkontos und vermindert dessen Kontostand.
      * @param item - Gut, das gekauft werden soll
      * @param amount - Menge, die gekauft werden soll
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/buy")
     public String buy(@RequestParam(value = "item") String item, @RequestParam(value = "amount") int amount) throws IOException, ParseException {
@@ -323,11 +342,13 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/sell?item=Valorant_Points&amount=1
     /**
-     * Verkauft angegebenes Gut für den aktuellen Preis auf Nutzeranfrage
-     * Vermindert dafür entsprechend die Menge des Gutes innerhalb des Nutzerkontos und erhöht dessen Kontostand.
+     * Verkauft angegebene Menge des angegebenen Gutes für den aktuellen Marktpreis auf Nutzeranfrage,
+     * vermindert dafür entsprechend die Menge des Gutes innerhalb des Nutzerkontos und erhöht dessen Kontostand.
      * @param item - Gut, das verkauft werden soll
      * @param amount - Menge, die verkauft werden soll
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/sell")
     public String sell(@RequestParam(value = "item") String item, @RequestParam(value = "amount") int amount) throws IOException, ParseException {
@@ -466,8 +487,10 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/delete
     /**
-     * Löscht das Konto des angemeldeten Benutzers, indem jede Varaible auf den leeren String gesetzt wird
+     * Löscht das Konto des angemeldeten Benutzers, indem jede Variable auf den leeren String gesetzt wird.
      * @return einen String, der ausgibt, welcher Fehler aufgetreten ist, oder ob es funktioniert hat
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/delete")
     public String delete() throws IOException, ParseException {
@@ -514,7 +537,7 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/refresh
     /**
-     * Aktualisiert die Preise der angebotenen Güter auf Nutzeranfrage
+     * Aktualisiert die Preise der angebotenen Güter auf Nutzeranfrage.
      * @return einen String, der alle neuen Preise enthält
      */
     @GetMapping("/refresh")
@@ -554,6 +577,8 @@ public class UserInteractionMitJSON {
      * Zieht die eingebene Menge an Primogems vom Benutzkonto ab
      * @param amount - Menge der Primogems, die abgehoben werden soll
      * @return einen String, der angibt, ob der Abzug erfolgreich war
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/withdraw")
     public String withdraw(@RequestParam(value = "amount") double amount) throws IOException, ParseException {
@@ -581,9 +606,11 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/deposit?amount=10
     /**
-     * Zahlt die eingebene Menge an Primogems in das Benutzkonto ein
+     * Zahlt die eingebene Menge an Primogems in das Benutzkonto ein.
      * @param amount - Menge der Primogems, die eingezahlt werden soll
      * @return einen String, der angibt, ob die Einzahlung erfolgreich war
+     * @throws IOException
+     * @throws ParseException
      */
     @GetMapping("/deposit")
     public String deposit(@RequestParam(value = "amount") double amount) throws IOException, ParseException {
@@ -606,7 +633,7 @@ public class UserInteractionMitJSON {
 
     //bsp: http://localhost:8080/shutdown
     /**
-     *Schließt den Server
+     *Schließt den Server.
      */
     @GetMapping("/shutdown")
     public void shutdown(){
