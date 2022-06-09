@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * Klasse zur Erstellung eines neuen Benutzers.
+ */
 public class UserCreation {
 
    public UserCreation(){}
