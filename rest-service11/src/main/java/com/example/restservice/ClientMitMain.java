@@ -9,7 +9,6 @@ public class ClientMitMain {
 
     public static void main(String[] args) throws IOException, ParseException {
 
-
         String name;
         String password;
         Scanner s = new Scanner(System.in);
