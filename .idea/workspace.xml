@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="195502c3-0f82-4e12-a396-fe6104fabfa2" name="Changes" comment="Klassen verschoben, die nicht gebraucht werden">
+    <list default="true" id="195502c3-0f82-4e12-a396-fe6104fabfa2" name="Changes" comment="Unittest geschrieben">
+      <change afterPath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/ClientMitMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/UserInteractionMitJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/UserInteractionMitJSON.java" afterDir="false" />
     </list>
     <list id="93eb0a9c-5697-458f-bcd7-250f3a3610bb" name="Changes by ipoop" comment="updated" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +84,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
-  <component name="RunManager" selected="Application.ClientUeberURL">
+  <component name="RunManager" selected="Application.ClientMitMain">
     <configuration name="ClientMitMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.restservice.ClientMitMain" />
       <module name="rest-service.main" />
@@ -95,38 +98,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientUEberURL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.restservice.ClientUEberURL" />
-      <module name="rest-service.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.restservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClientUeberURL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.restservice.ClientUeberURL" />
-      <module name="rest-service.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.restservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tests in 'rest-service'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ServerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/rest-service11" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests *" />
+        <option name="scriptParameters" value="--tests &quot;com.example.restservice.ServerTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -142,7 +119,67 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="All in Test" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/Test.http">
+    <configuration name="ServerTest.deleteFehler" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/rest-service11" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.restservice.ServerTest.deleteFehler&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ServerTest.registriereErstenBenutzer" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/rest-service11" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.restservice.ServerTest.registriereErstenBenutzer&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ServerTest.shutdown" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/rest-service11" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.restservice.ServerTest.shutdown&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="RestServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -154,11 +191,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'rest-service'" />
-        <item itemvalue="Application.ClientUeberURL" />
-        <item itemvalue="Application.ClientUEberURL" />
-        <item itemvalue="HTTP Request.All in Test" />
         <item itemvalue="Application.ClientMitMain" />
+        <item itemvalue="Gradle.ServerTest.deleteFehler" />
+        <item itemvalue="Gradle.ServerTest.registriereErstenBenutzer" />
+        <item itemvalue="Gradle.ServerTest" />
+        <item itemvalue="Gradle.ServerTest.shutdown" />
       </list>
     </recent_temporary>
   </component>
@@ -198,6 +235,7 @@
       <workItem from="1654623410734" duration="5622000" />
       <workItem from="1654686224973" duration="21504000" />
       <workItem from="1654715048136" duration="824000" />
+      <workItem from="1654788918566" duration="426000" />
     </task>
     <task id="LOCAL-00001" summary="ersten 5/10 Güter-Klassen upload">
       <created>1653213947417</created>
@@ -374,7 +412,42 @@
       <option name="project" value="LOCAL" />
       <updated>1654772180726</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="UserInteractionMitJSON JavaDoc fertig">
+      <created>1654774091216</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1654774091216</updated>
+    </task>
+    <task id="LOCAL-00027" summary="updated">
+      <created>1654774559642</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1654774559642</updated>
+    </task>
+    <task id="LOCAL-00028" summary="JavaDoc in RestServiceApplication">
+      <created>1654775001911</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1654775001911</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Prices Methode hinzugefügt">
+      <created>1654778284612</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1654778284612</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Unittest geschrieben">
+      <created>1654786706816</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1654786706816</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +467,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ersten 5/10 Güter-Klassen upload" />
     <MESSAGE value="Attribut Preis zu ersten 5/10 Güter-Klassen hinzugefügt" />
     <MESSAGE value="UserLogin über den Browser ausführbar gemacht" />
     <MESSAGE value="Struktur der Preiskaktualisierung eingefügt" />
@@ -408,13 +480,18 @@
     <MESSAGE value="ClientMitMain, login und register funktioniert" />
     <MESSAGE value="ClientMitMain alle Funktionen ohne rest funktional" />
     <MESSAGE value="UserInteractionMitJSON angefangen" />
-    <MESSAGE value="updated" />
     <MESSAGE value="update" />
     <MESSAGE value="UserInteractionMitJSON funktioniert bis zur buy-Methode" />
     <MESSAGE value="UserInteractionMitJSON ale Methoden fertig" />
     <MESSAGE value="ClientUeberURL funktioniert vollständig über URIs" />
     <MESSAGE value="Client alles funktioniert bis auf die delete-Methode" />
     <MESSAGE value="Klassen verschoben, die nicht gebraucht werden" />
-    <option name="LAST_COMMIT_MESSAGE" value="Klassen verschoben, die nicht gebraucht werden" />
+    <MESSAGE value="UserInteractionMitJSON JavaDoc fertig" />
+    <MESSAGE value="updated" />
+    <MESSAGE value="JavaDoc in RestServiceApplication" />
+    <MESSAGE value="Prices Methode hinzugefpgt" />
+    <MESSAGE value="Prices Methode hinzugefügt" />
+    <MESSAGE value="Unittest geschrieben" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unittest geschrieben" />
   </component>
 </project>
