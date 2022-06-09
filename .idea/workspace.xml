@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="195502c3-0f82-4e12-a396-fe6104fabfa2" name="Changes" comment="Client alles funktioniert bis auf die delete-Methode">
-      <change beforePath="$PROJECT_DIR$/.idea/Projekt2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projekt2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="195502c3-0f82-4e12-a396-fe6104fabfa2" name="Changes" comment="Klassen verschoben, die nicht gebraucht werden">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/ClientMitMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/ClientUeberURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/ClientUeberURL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/Primogems.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/Test.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/UserInteractionMitJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service11/src/main/java/com/example/restservice/UserInteractionMitJSON.java" afterDir="false" />
     </list>
     <list id="93eb0a9c-5697-458f-bcd7-250f3a3610bb" name="Changes by ipoop" comment="updated" />
     <option name="SHOW_DIALOG" value="false" />
@@ -378,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654707681712</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Klassen verschoben, die nicht gebraucht werden">
+      <created>1654772180726</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1654772180726</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,6 +414,7 @@
     <MESSAGE value="UserInteractionMitJSON ale Methoden fertig" />
     <MESSAGE value="ClientUeberURL funktioniert vollständig über URIs" />
     <MESSAGE value="Client alles funktioniert bis auf die delete-Methode" />
-    <option name="LAST_COMMIT_MESSAGE" value="Client alles funktioniert bis auf die delete-Methode" />
+    <MESSAGE value="Klassen verschoben, die nicht gebraucht werden" />
+    <option name="LAST_COMMIT_MESSAGE" value="Klassen verschoben, die nicht gebraucht werden" />
   </component>
 </project>
