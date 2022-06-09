@@ -2,7 +2,6 @@ package com.example.restservice;
 import org.json.simple.parser.ParseException;
 import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.*;
 
 /**
@@ -12,7 +11,7 @@ import java.util.*;
 
 public class ClientUeberURL {
 
-    public static void main(String[] args) throws IOException, ParseException, URISyntaxException {
+    public static void main(String[] args) throws IOException, ParseException {
 
         /**
          * 2 Attribute vom Typ String, zur späteren Speicherung vom Namen und Password des Nutzkontos
@@ -92,7 +91,9 @@ public class ClientUeberURL {
                 } else if (ausgabe.equals("Dieser Nutzer existiert nicht.")) {
                     System.out.println(ausgabe + "\n");
                 }
-            }
+
+            } else  System.out.println("Keine gueltige Eingabe\n");
+
         }
 
         System.out.println("Geben sie 'help' ein, um alle akzeptierten Befehle anzuzeigen.\n");
