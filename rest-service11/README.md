@@ -20,6 +20,7 @@ Projektumfang:
 Zuletzt sollen alle Klassen mit JavaDoc-Kommentaren versehen werden und das Projekt ausgiebig dokumentiert werden.
 
 
+Ein UML-Diagram für die Funktionsweise des Servers befindet sich in der Datei "UML-Diagram".
 
 Die Dokumentation für die Build- bzw. Unittests befindet sich in der Datei "Unittests".
 
