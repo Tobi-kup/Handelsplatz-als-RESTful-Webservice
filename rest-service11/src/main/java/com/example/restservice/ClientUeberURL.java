@@ -215,9 +215,12 @@ public class ClientUeberURL {
             if (eingabe.equals("delete")) {
                 System.out.println(rt.getForObject("http://localhost:8080/delete", String.class));
                 angemeldet = false;
+            
+
+            } else {
+                System.out.println("Ungueltige Eingabe");
             }
         }
 
     }
 }
-
