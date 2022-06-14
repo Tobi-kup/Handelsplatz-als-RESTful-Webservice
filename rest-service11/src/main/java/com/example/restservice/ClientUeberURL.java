@@ -128,7 +128,7 @@ public class ClientUeberURL {
              * Kauft Güter mit der buy Methode in UserInteraction durch Aufrufen der URI
              * checkt die Eingabe von item und anzahl und ruft die URI mit den entsprechenden Werten auf
              */
-            if (eingabe.equals("buy")) {
+            else if (eingabe.equals("buy")) {
                 System.out.println("Welches Gut moechten Sie erwerben?");
                 System.out.println("Es stehen folgende Gueter zur Auswahl: \n1.Reddit_Karma\n2.Valorant_Point\n3.Toilettenpapier\n4.Rapsoel\n5.NFT\n6.LSD\n7.Grafikkarten\n8.Discord_Nitro\n9.CSGO_Case_Keys\n10.Nieren\n");
                 System.out.println("Bitte geben Sie den Namen den Gutes genau so wie genannt ein.");
@@ -143,7 +143,7 @@ public class ClientUeberURL {
              * Verkauft Güter mit der sell Methode in UserInteraction durch Aufrufen der URI
              * checkt die Eingabe von item und anzahl und ruft die URI mit den entsprechenden Werten auf
              */
-            if (eingabe.equals("sell")) {
+            else if (eingabe.equals("sell")) {
                 System.out.println("Welches Gut moechten Sie verkaufen?");
                 String item = s.nextLine();
                 System.out.println("Wie viele moechten Sie verkaufen?");
@@ -155,7 +155,7 @@ public class ClientUeberURL {
             /**
              * aktualisiert die Güterpreise mit der refresh Methode in UserInteraction durch Aufrufen der URI
              */
-            if (eingabe.equals("refresh")) {
+            else if (eingabe.equals("refresh")) {
                 System.out.println("Die Preise haben sich veraendert ;) \n");
                 System.out.println(rt.getForObject("http://localhost:8080/refresh", String.class));
             }
@@ -164,7 +164,7 @@ public class ClientUeberURL {
             /**
              * gibt die aktuellen Güterpreise mit der prices Methode in UserInteraction durch Aufrufen der URI aus
              */
-            if (eingabe.equals("prices")) {
+            else if (eingabe.equals("prices")) {
                 System.out.println("Dies sind die aktuellen Gueterpreise:\n");
                 System.out.println(rt.getForObject("http://localhost:8080/prices", String.class));
             }
@@ -173,7 +173,7 @@ public class ClientUeberURL {
             /**
              * Gibt die Kontoinformationen des Benutzers mit der info Methode in UserInteraction durch Aufrufen der URI aus
              */
-            if (eingabe.equals("info")) {
+            else if (eingabe.equals("info")) {
                 System.out.println(rt.getForObject("http://localhost:8080/info", String.class));
             }
 
@@ -182,7 +182,7 @@ public class ClientUeberURL {
              * Zieht den eingegebenen Wert von dem Kontostand des Benutzerkontos mit der withdraw Methode in UserInteraction durch aufrufen der URL ab
              * checkt die Eingabe von menge und ruft die URI mit dem entsprechenden Wert auf
              */
-            if (eingabe.equals("withdraw")) {
+            else if (eingabe.equals("withdraw")) {
                 System.out.println("Wie viele Primogems sollen abgehoben werden?");
                 double menge = s.nextDouble();
                 System.out.println(rt.getForObject("http://localhost:8080/withdraw?amount="+menge+"", String.class) + "\n");
@@ -193,7 +193,7 @@ public class ClientUeberURL {
              * Zahlt den eingegebenen Wert auf den Kontostand des Benutzerkontos mit der deposit Methode in UserInteraction durch aufrufen der URL ein
              * checkt die Eingabe von menge und ruft die URI mit dem entsprechenden Wert auf
              */
-            if (eingabe.equals("deposit")) {
+            else if (eingabe.equals("deposit")) {
                 System.out.println("Wie viele Primogems sollen eingezahlt werden?");
                 double menge = s.nextDouble();
                 System.out.println(rt.getForObject("http://localhost:8080/deposit?amount="+menge+"", String.class) + "\n");
@@ -203,18 +203,19 @@ public class ClientUeberURL {
             /**
              * beendet die aktuelle Schleife und somit den Client, wenn der Benutzer "logout" eingibt
              */
-            if (eingabe.equals("logout")) {
+            else if (eingabe.equals("logout")) {
                 angemeldet = false;
             }
 
 
             /**
-             * Ruft die URI für das Löschen des aktuell angemeldeten Nutzerkontos auf
-             * beendet die aktuelle Schleife und somit den Client
+             * Ruft die URI für das Löschen des aktuell angemeldeten Nutzerkontos auf und die URI für das Schließen des Servers
+             * und beendet die aktuelle Schleife und somit den Client
              */
-            if (eingabe.equals("delete")) {
+            else if (eingabe.equals("delete")) {
                 System.out.println(rt.getForObject("http://localhost:8080/delete", String.class));
                 angemeldet = false;
+                System.out.println(rt.getForObject("http://localhost:8080/shutdown", String.class));
             
 
             } else {
